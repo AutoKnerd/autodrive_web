@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 
 const Navigation: React.FC = () => {
     return (
-        <nav style={{ padding: '1.5rem 5%', position: 'absolute', width: '100%', zIndex: 50, display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '1rem', textDecoration: 'none' }}>
-                    <img src="/logo.png" alt="AutoDrive" style={{ height: 'max(32px, 4vw)', width: 'auto', filter: 'brightness(0.9)' }} />
+        <nav style={{ padding: 'clamp(0.75rem, 3vw, 1.5rem) 5%', position: 'absolute', width: '100%', zIndex: 100, display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '0.5rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+                    <img src="/logo.png" alt="AutoDrive" style={{ height: 'clamp(28px, 6vw, 42px)', width: 'auto', filter: 'brightness(1)' }} />
                 </Link>
                 <div className="hide-mobile" style={{ width: '1px', height: '20px', background: 'rgba(255,255,255,0.2)' }}></div>
                 <span className="hide-mobile" style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '0.9rem', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.6)', textTransform: 'uppercase' }}>

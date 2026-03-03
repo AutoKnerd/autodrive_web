@@ -27,17 +27,17 @@ const Implementation: React.FC = () => {
                     zIndex: 1
                 }} />
 
-                <div className="container" style={{ position: 'relative', zIndex: 10 }}>
+                <div className="container hero-content" style={{ position: 'relative', zIndex: 10 }}>
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                         style={{ maxWidth: '900px' }}
                     >
-                        <h1 style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', color: '#fff', fontWeight: 800, marginBottom: '1.5rem', letterSpacing: '-0.03em' }}>
+                        <h1 style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', color: '#fff', fontWeight: 800, marginBottom: '1rem', letterSpacing: '-0.03em' }}>
                             Explore Dealership Implementation
                         </h1>
-                        <h2 style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.8rem)', color: 'var(--logo-blue)', fontWeight: 500, marginBottom: '3rem', opacity: 0.9 }}>
+                        <h2 style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.8rem)', color: 'var(--logo-blue)', fontWeight: 500, marginBottom: '2rem', opacity: 0.9 }}>
                             How AutoDrive integrates into your store without disrupting operations.
                         </h2>
 

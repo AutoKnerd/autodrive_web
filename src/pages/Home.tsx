@@ -34,14 +34,14 @@ const Home: React.FC = () => {
                     filter: 'saturate(0.5) brightness(0.8)'
                 }}></div>
 
-                <div className="container" style={{ position: 'relative', zIndex: 10 }}>
+                <div className="container hero-content" style={{ position: 'relative', zIndex: 10 }}>
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
                     >
                         <div style={{ marginBottom: '3rem' }}>
-                            <h1 style={{ fontSize: 'clamp(4rem, 10vw, 8rem)', lineHeight: 0.8, marginBottom: '0.5rem', fontWeight: 800, color: '#fff', letterSpacing: '-0.04em' }}>
+                            <h1 style={{ fontSize: 'clamp(3rem, 10vw, 8rem)', lineHeight: 0.8, marginBottom: '0.5rem', fontWeight: 800, color: '#fff', letterSpacing: '-0.04em' }}>
                                 AutoDrive
                             </h1>
                             <div style={{ marginTop: '1rem' }}>
