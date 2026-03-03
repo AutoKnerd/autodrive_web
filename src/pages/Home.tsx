@@ -64,9 +64,9 @@ const Home: React.FC = () => {
                             </div>
                         </div>
 
-                        <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap', alignItems: 'center' }}>
-                            <a href="#beta" className="btn btn-primary" style={{ padding: '1.4rem 2.8rem' }}>Join Private Beta</a>
-                            <Link to="/implementation" className="btn btn-ghost" style={{ padding: '1.4rem 2.8rem', textDecoration: 'none' }}>
+                        <div style={{ display: 'flex', gap: 'clamp(1rem, 3vw, 2rem)', flexWrap: 'wrap', alignItems: 'center' }}>
+                            <a href="#beta" className="btn btn-primary" style={{ padding: 'clamp(1rem, 3vw, 1.4rem) clamp(2rem, 5vw, 2.8rem)', fontSize: 'clamp(0.8rem, 2vw, 1rem)' }}>Join Private Beta</a>
+                            <Link to="/implementation" className="btn btn-ghost" style={{ padding: 'clamp(1rem, 3vw, 1.4rem) clamp(2rem, 5vw, 2.8rem)', textDecoration: 'none', fontSize: 'clamp(0.8rem, 2vw, 1rem)' }}>
                                 Explore Dealership Implementation
                             </Link>
                         </div>

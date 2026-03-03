@@ -50,9 +50,9 @@ const Implementation: React.FC = () => {
                             </p>
                         </div>
 
-                        <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
-                            <button className="btn btn-primary" style={{ padding: '1.2rem 2.4rem' }}>Schedule Implementation Call</button>
-                            <button className="btn btn-ghost" style={{ padding: '1.2rem 2.4rem' }}>View Sample Rollout Plan</button>
+                        <div style={{ display: 'flex', gap: 'clamp(1rem, 3vw, 1.5rem)', flexWrap: 'wrap' }}>
+                            <button className="btn btn-primary" style={{ padding: 'clamp(1rem, 3vw, 1.2rem) clamp(2rem, 5vw, 2.4rem)', fontSize: 'clamp(0.8rem, 2vw, 1rem)' }}>Schedule Implementation Call</button>
+                            <button className="btn btn-ghost" style={{ padding: 'clamp(1rem, 3vw, 1.2rem) clamp(2rem, 5vw, 2.4rem)', fontSize: 'clamp(0.8rem, 2vw, 1rem)' }}>View Sample Rollout Plan</button>
                         </div>
                     </motion.div>
                 </div>
