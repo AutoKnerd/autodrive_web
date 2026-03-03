@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ChevronRight, Calendar, Users, Shield, Zap, CheckCircle2 } from 'lucide-react';
+import { Calendar, Users, Shield, Zap, CheckCircle2 } from 'lucide-react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 
@@ -186,7 +186,7 @@ const Implementation: React.FC = () => {
                                 role: "For Consultants",
                                 items: ["Micro-drills", "XP progression", "Skill leveling"]
                             }
-                        ].map((role, i) => (
+                        ].map((role) => (
                             <div key={role.role} style={{
                                 padding: '3rem', border: '1px solid #f0f0f0', background: '#fafafa',
                                 transition: 'transform 0.3s ease'
@@ -287,7 +287,7 @@ const Implementation: React.FC = () => {
                             { day: "Day 1", title: "Activation", desc: "Dashboard live. First drill assigned." },
                             { day: "Day 30", title: "Pattern Visibility", desc: "Skill trends measurable. Coaching calibrated." },
                             { day: "Day 90", title: "Culture Stabilized", desc: "Behavior consistent. CX predictable." }
-                        ].map((step, i) => (
+                        ].map((step) => (
                             <div key={step.day} style={{
                                 flex: '1', minWidth: '280px', background: '#fff', padding: '3rem',
                                 border: '1px solid #eee', position: 'relative'
