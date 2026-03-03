@@ -51,16 +51,16 @@ const Home: React.FC = () => {
                             </div>
                         </div>
 
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '3rem', marginBottom: '4.5rem', maxWidth: '1000px' }}>
+                        <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', marginBottom: '4.5rem', maxWidth: '1000px' }}>
                             <div style={{ borderLeft: '3px solid var(--logo-blue)', paddingLeft: '2rem' }}>
-                                <p style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', fontWeight: 600, marginBottom: '0.2rem' }}>Stabilize culture.</p>
-                                <p style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', fontWeight: 600, marginBottom: '0.2rem' }}>Protect CSI.</p>
-                                <p style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', fontWeight: 600, color: 'var(--logo-green)' }}>Increase gross.</p>
+                                <p style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.2rem, 4vw, 1.6rem)', fontWeight: 600, marginBottom: '0.2rem' }}>Stabilize culture.</p>
+                                <p style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.2rem, 4vw, 1.6rem)', fontWeight: 600, marginBottom: '0.2rem' }}>Protect CSI.</p>
+                                <p style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.2rem, 4vw, 1.6rem)', fontWeight: 600, color: 'var(--logo-green)' }}>Increase gross.</p>
                             </div>
                             <div style={{ color: 'var(--text-primary-dark)', borderLeft: '1px solid rgba(255,255,255,0.1)', paddingLeft: '2rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                                <p style={{ marginBottom: '0.8rem', fontSize: '1.1rem', fontWeight: 400, opacity: 0.8, letterSpacing: '0.02em' }}>AI-guided development for consultants.</p>
-                                <p style={{ marginBottom: '0.8rem', fontSize: '1.1rem', fontWeight: 400, opacity: 0.8, letterSpacing: '0.02em' }}>Manager-led accountability for teams.</p>
-                                <p style={{ fontSize: '1.1rem', fontWeight: 400, opacity: 0.8, letterSpacing: '0.02em' }}>Executive clarity for ownership.</p>
+                                <p style={{ marginBottom: '0.8rem', fontSize: '1rem', fontWeight: 400, opacity: 0.8, letterSpacing: '0.02em' }}>AI-guided development for consultants.</p>
+                                <p style={{ marginBottom: '0.8rem', fontSize: '1rem', fontWeight: 400, opacity: 0.8, letterSpacing: '0.02em' }}>Manager-led accountability for teams.</p>
+                                <p style={{ fontSize: '1rem', fontWeight: 400, opacity: 0.8, letterSpacing: '0.02em' }}>Executive clarity for ownership.</p>
                             </div>
                         </div>
 
@@ -128,7 +128,7 @@ const Home: React.FC = () => {
                         </button>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '6rem', alignItems: 'center' }}>
+                    <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', alignItems: 'center' }}>
                         <motion.div
                             initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
@@ -199,11 +199,12 @@ const Home: React.FC = () => {
                             style={{
                                 position: 'relative',
                                 background: '#f9fafb',
-                                padding: '3rem',
+                                padding: 'clamp(1rem, 5vw, 3rem)',
                                 border: '1px solid #e0e6ed',
                                 boxShadow: '0 30px 60px rgba(0,0,0,0.05)',
                                 borderRadius: '8px',
-                                overflow: 'hidden'
+                                overflow: 'hidden',
+                                width: '100%'
                             }}
                         >
                             <div style={{ position: 'absolute', top: '1.5rem', right: '1.5rem', fontSize: '0.6rem', opacity: 0.3, color: '#000', letterSpacing: '0.3em', textTransform: 'uppercase' }}>
@@ -382,12 +383,12 @@ const Home: React.FC = () => {
                                 style={{ background: '#f8f9fa', padding: '4rem', borderRadius: '8px', border: '1px solid #eef0f2', position: 'relative', overflow: 'hidden' }}>
                                 <div style={{ position: 'absolute', top: '1.5rem', right: '1.5rem', fontSize: '0.7rem', opacity: 0.3, letterSpacing: '0.2em', fontWeight: 900 }}>PILLAR // 0{activePillar + 1}</div>
                                 <div style={{ maxWidth: '900px' }}>
-                                    <p style={{ fontSize: '1.6rem', fontWeight: 500, lineHeight: 1.3, color: '#1a1a1a', letterSpacing: '-0.01em', marginBottom: '4rem' }}>
+                                    <p style={{ fontSize: 'clamp(1.1rem, 4vw, 1.6rem)', fontWeight: 500, lineHeight: 1.3, color: '#1a1a1a', letterSpacing: '-0.01em', marginBottom: 'clamp(2rem, 5vw, 4rem)' }}>
                                         {activePillar === 0 && "AutoDrive stabilizes customer experience by stabilizing behavior. CSI does not fluctuate because mood changes. It improves because standards become repeatable."}
                                         {activePillar === 1 && "Gross grows when confidence grows. Confidence grows when skills are structured. AutoDrive turns soft skills into measurable performance drivers."}
                                         {activePillar === 2 && "AutoDrive makes leadership visible. Managers stop guessing who is improving and start coaching with precision."}
                                     </p>
-                                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '2.5rem' }}>
+                                    <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2.5rem' }}>
                                         {(activePillar === 0 ? [
                                             { title: 'Daily Behavioral Reinforcement', body: 'Micro-drills and XP-based repetition embed tone, empathy, and clarity into muscle memory.', fix: 'Inconsistent greetings, uneven follow-through.' },
                                             { title: 'Trust Leak Detection', body: 'The system surfaces breakdowns in clarity or follow-up before they hit surveys.', fix: '"We don’t know why CSI dropped."' },
@@ -440,10 +441,10 @@ const Home: React.FC = () => {
                         <h2 style={{ fontSize: 'clamp(3rem, 6vw, 5.5rem)', color: 'var(--logo-green)', marginTop: '0.8rem' }}>Reinforcement does.</h2>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(450px, 1fr))', gap: '8rem', alignItems: 'center' }}>
-                        <div style={{ position: 'relative', height: '550px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                            <div style={{ position: 'absolute', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(102, 184, 72, 0.15) 0%, transparent 70%)', filter: 'blur(40px)', zIndex: 1 }} />
-                            <svg width="600" height="600" viewBox="0 0 600 600" style={{ overflow: 'visible', zIndex: 10 }}>
+                    <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', alignItems: 'center' }}>
+                        <div style={{ position: 'relative', height: 'clamp(350px, 60vh, 550px)', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+                            <div style={{ position: 'absolute', width: '300px', height: '300px', background: 'radial-gradient(circle, rgba(102, 184, 72, 0.15) 0%, transparent 70%)', filter: 'blur(40px)', zIndex: 1 }} />
+                            <svg width="100%" height="100%" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid meet" style={{ overflow: 'visible', zIndex: 10, maxWidth: '500px' }}>
                                 <defs>
                                     <clipPath id="orbClip"><circle cx="300" cy="300" r="148" /></clipPath>
                                     <radialGradient id="glassGrad" cx="35%" cy="35%" r="50%"><stop offset="0%" stopColor="rgba(255,255,255,0.25)" /><stop offset="60%" stopColor="rgba(255,255,255,0)" /><stop offset="100%" stopColor="rgba(0,0,0,0.4)" /></radialGradient>
@@ -519,14 +520,14 @@ const Home: React.FC = () => {
 
             <section className="light-section" style={{ borderTop: '1px solid rgba(0,0,0,0.05)', background: '#fff' }}>
                 <div className="container">
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
+                    <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
                         {/* Cards */}
                         {[
                             { role: 'Consultant', items: ['AI-guided skill development', 'Real-time performance feedback', 'Career-defining training path'], cta: 'Join Private Beta', link: '#beta', primary: true },
                             { role: 'Manager', items: ['Automated team accountability', 'Coaching visibility & tracking', 'Culture stability controls'], cta: 'Explore Dealership Implementation', link: '/implementation', primary: false },
                             { role: 'Dealer Principal', items: ['Executive performance clarity', 'Gross profit risk mitigation', 'Enterprise-level scalability'], cta: 'Explore Dealership Implementation', link: '/implementation', primary: false }
                         ].map(card => (
-                            <div key={card.role} style={{ padding: '3rem', background: '#fff', border: '1px solid #eee' }}>
+                            <div key={card.role} style={{ padding: 'clamp(1.5rem, 5vw, 3rem)', background: '#fff', border: '1px solid #eee' }}>
                                 <h3 style={{ fontSize: '1.25rem', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '2rem', opacity: 0.6 }}>{card.role}</h3>
                                 <ul style={{ listStyle: 'none', marginBottom: '3rem' }}>
                                     {card.items.map(item => <li key={item} style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '1rem' }}><ChevronRight size={16} /> {item}</li>)}

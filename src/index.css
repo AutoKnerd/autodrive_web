@@ -145,13 +145,52 @@ section {
   animation: fadeIn 0.8s var(--transition-smooth) forwards;
 }
 
+/* Responsive Adjustments */
+.hide-mobile {
+  display: flex !important;
+}
+
+.mobile-stack {
+  display: flex;
+  flex-direction: row;
+}
+
 @media (max-width: 768px) {
-  section {
-    padding: var(--spacing-base) 5%;
+  :root {
+    --spacing-huge: 4rem;
+    --spacing-large: 2.5rem;
   }
 
-  :root {
-    --spacing-huge: 6rem;
-    --spacing-large: 4rem;
+  section {
+    padding: var(--spacing-large) 5%;
+  }
+
+  .hide-mobile {
+    display: none !important;
+  }
+
+  .mobile-stack {
+    flex-direction: column !important;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 8vw, 4rem) !important;
+  }
+
+  h2 {
+    font-size: clamp(1.8rem, 6vw, 2.5rem) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 2.5rem 5%;
+  }
+
+  .btn {
+    padding: 1rem 1.5rem;
+    font-size: 0.8rem;
+    width: 100%;
+    margin-bottom: 0.5rem;
   }
 }

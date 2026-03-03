@@ -65,7 +65,7 @@ const Implementation: React.FC = () => {
                         <h2 style={{ fontSize: '2.4rem', fontWeight: 800, letterSpacing: '-0.02em' }}>A Structured Rollout, Not a Training Event</h2>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1px', background: '#eee', border: '1px solid #eee' }}>
+                    <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1px', background: '#eee', border: '1px solid #eee' }}>
                         {[
                             {
                                 phase: "Phase 1",
@@ -122,7 +122,7 @@ const Implementation: React.FC = () => {
             {/* SECTION 2 – What It Looks Like Inside a Store */}
             <section style={{ padding: 'var(--spacing-huge) 5%', background: '#f8f9fa' }}>
                 <div className="container">
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '4rem', alignItems: 'start' }}>
+                    <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', alignItems: 'start' }}>
                         <div>
                             <h2 style={{ fontSize: '2.4rem', fontWeight: 800, marginBottom: '1.5rem', letterSpacing: '-0.02em' }}>A Typical Week With AutoDrive</h2>
                             <p style={{ fontSize: '1.1rem', color: '#666', lineHeight: 1.6, marginBottom: '3rem' }}>
@@ -131,7 +131,7 @@ const Implementation: React.FC = () => {
                             </p>
                         </div>
 
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                        <div className="mobile-stack" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', width: '100%' }}>
                             {[
                                 { day: "Monday", time: "5 MIN", task: "Micro-drill before doors open.", icon: <Zap size={20} /> },
                                 { day: "Wednesday", time: "DATA", task: "Manager sees hesitation trend in discovery.", icon: <TrendingUp size={20} /> },
@@ -143,7 +143,7 @@ const Implementation: React.FC = () => {
                                     whileInView={{ opacity: 1, x: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: i * 0.1 }}
-                                    style={{ background: '#fff', padding: '2rem', display: 'flex', gap: '2rem', alignItems: 'center', border: '1px solid #eee' }}
+                                    style={{ background: '#fff', padding: 'clamp(1rem, 5vw, 2rem)', display: 'flex', gap: 'clamp(1rem, 5vw, 2rem)', alignItems: 'center', border: '1px solid #eee', width: '100%' }}
                                 >
                                     <div style={{
                                         width: '60px', height: '60px', background: '#f0f0f0', borderRadius: '50%',
@@ -172,7 +172,7 @@ const Implementation: React.FC = () => {
                         <h2 style={{ fontSize: '2.4rem', fontWeight: 800, letterSpacing: '-0.02em' }}>Built Around Roles, Not Theory</h2>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem' }}>
+                    <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
                         {[
                             {
                                 role: "For Owners",
@@ -209,7 +209,7 @@ const Implementation: React.FC = () => {
             {/* SECTION 4 – Time Commitment Reality */}
             <section style={{ padding: 'var(--spacing-huge) 5%', background: '#0a0b0d', color: '#fff' }}>
                 <div className="container">
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '6rem', alignItems: 'center' }}>
+                    <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', alignItems: 'center' }}>
                         <div>
                             <h2 style={{ fontSize: '2.4rem', fontWeight: 800, marginBottom: '2.5rem' }}>What It Does Not Require</h2>
                             <ul style={{ listStyle: 'none', opacity: 0.6 }}>
@@ -228,7 +228,7 @@ const Implementation: React.FC = () => {
                             </ul>
                         </div>
 
-                        <div style={{ background: 'rgba(255,255,255,0.03)', padding: '4rem', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '8px' }}>
+                        <div style={{ background: 'rgba(255,255,255,0.03)', padding: 'clamp(2rem, 5vw, 4rem)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '8px', width: '100%' }}>
                             <div style={{ marginBottom: '3rem' }}>
                                 <span style={{ fontSize: '0.7rem', fontWeight: 900, opacity: 0.4, textTransform: 'uppercase', letterSpacing: '0.15em' }}>Daily time per consultant</span>
                                 <p style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--logo-green)' }}>5–8 minutes</p>
@@ -254,7 +254,7 @@ const Implementation: React.FC = () => {
                             Most training fails because reinforcement fades. The excitement of a "training event" wears off by the following Tuesday. AutoDrive solves this by structural embedding.
                         </p>
 
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '2rem', marginBottom: '6rem' }}>
+                        <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1rem', marginBottom: '4rem' }}>
                             {[
                                 { label: "Daily Repetition", icon: <Zap size={20} /> },
                                 { label: "Automatic Logging", icon: <Shield size={20} /> },
@@ -282,14 +282,14 @@ const Implementation: React.FC = () => {
                         <h2 style={{ fontSize: '2rem', fontWeight: 800 }}>Maturity Timeline</h2>
                     </div>
 
-                    <div style={{ display: 'flex', gap: '2rem', alignItems: 'stretch', justifyContent: 'center', flexWrap: 'wrap' }}>
+                    <div className="mobile-stack" style={{ display: 'flex', gap: '2rem', alignItems: 'stretch', justifyContent: 'center' }}>
                         {[
                             { day: "Day 1", title: "Activation", desc: "Dashboard live. First drill assigned." },
                             { day: "Day 30", title: "Pattern Visibility", desc: "Skill trends measurable. Coaching calibrated." },
                             { day: "Day 90", title: "Culture Stabilized", desc: "Behavior consistent. CX predictable." }
                         ].map((step) => (
                             <div key={step.day} style={{
-                                flex: '1', minWidth: '280px', background: '#fff', padding: '3rem',
+                                flex: '1', minWidth: '280px', background: '#fff', padding: 'clamp(1.5rem, 5vw, 3rem)',
                                 border: '1px solid #eee', position: 'relative'
                             }}>
                                 <div style={{
@@ -311,6 +311,7 @@ const Implementation: React.FC = () => {
         </div>
     );
 };
+
 
 export default Implementation;
 
