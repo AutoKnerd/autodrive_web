@@ -21,11 +21,16 @@ const Implementation: React.FC = () => {
                 overflow: 'hidden'
             }}>
                 {/* Subtle Architecture background */}
+                {/* Architectural Background */}
                 <div style={{
-                    position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
-                    backgroundImage: 'radial-gradient(circle at 70% 30%, rgba(102, 184, 72, 0.05) 0%, transparent 60%)',
-                    zIndex: 1
-                }} />
+                    position: 'absolute', top: 0, right: 0, width: '100%', height: '100%',
+                    backgroundImage: 'url("/implementation-hero.png")', backgroundSize: 'cover', backgroundPosition: 'center',
+                    maskImage: 'linear-gradient(to right, rgba(0,0,0,1) 25%, rgba(0,0,0,0) 80%)',
+                    WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,1) 25%, rgba(0,0,0,0) 80%)',
+                    opacity: 0.45,
+                    zIndex: 1,
+                    filter: 'saturate(0.4) brightness(0.6)'
+                }}></div>
 
                 <div className="container hero-content" style={{ position: 'relative', zIndex: 10 }}>
                     <motion.div
@@ -44,6 +49,9 @@ const Implementation: React.FC = () => {
                         <div style={{ borderLeft: '2px solid rgba(255,255,255,0.1)', paddingLeft: '2.5rem', marginBottom: '4rem' }}>
                             <p style={{ fontSize: '1.4rem', color: '#fff', marginBottom: '1rem', fontWeight: 600 }}>
                                 AutoDrive does not replace your managers. <span style={{ color: 'var(--logo-green)' }}>It equips them.</span>
+                            </p>
+                            <p style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.62)', marginBottom: '0.8rem', fontWeight: 600, letterSpacing: '0.01em' }}>
+                                Installed across departments. Governed by management. Visible to ownership.
                             </p>
                             <p style={{ fontSize: '1.1rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.6, maxWidth: '600px' }}>
                                 Implementation is structured, phased, and built around your existing workflow. No sudden shifts. Just systematic evolution.
@@ -82,7 +90,7 @@ const Implementation: React.FC = () => {
                             {
                                 phase: "Phase 3",
                                 title: "Team Activation",
-                                items: ["Consultants begin daily micro-drills", "XP tracking begins immediately", "First weekly reinforcement meeting auto-generated"],
+                                items: ["Frontline teams activate daily execution reps within existing workflows", "Performance tracking begins immediately", "First weekly reinforcement meeting auto-generated"],
                                 desc: "Behavior shifts within week one."
                             },
                             {
@@ -133,8 +141,8 @@ const Implementation: React.FC = () => {
 
                         <div className="mobile-stack" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', width: '100%' }}>
                             {[
-                                { day: "Monday", time: "5 MIN", task: "Micro-drill before doors open.", icon: <Zap size={20} /> },
-                                { day: "Wednesday", time: "DATA", task: "Manager sees hesitation trend in discovery.", icon: <TrendingUp size={20} /> },
+                                { day: "Monday", time: "5 MIN", task: "Execution rep before shift start.", icon: <Zap size={20} /> },
+                                { day: "Wednesday", time: "DATA", task: "Manager sees workflow handoff gap between departments.", icon: <TrendingUp size={20} /> },
                                 { day: "Friday", time: "10 MIN", task: "Reinforcement meeting using auto-generated guide.", icon: <Users size={20} /> }
                             ].map((item, i) => (
                                 <motion.div
@@ -183,8 +191,8 @@ const Implementation: React.FC = () => {
                                 items: ["Coaching prompts", "Meeting guides", "Skill gap visibility"]
                             },
                             {
-                                role: "For Consultants",
-                                items: ["Micro-drills", "XP progression", "Skill leveling"]
+                                role: "For Frontline Teams",
+                                items: ["Execution reps", "Performance progression", "Role-based progression"]
                             }
                         ].map((role) => (
                             <div key={role.role} style={{
@@ -218,6 +226,7 @@ const Implementation: React.FC = () => {
                                     "No offsite training",
                                     "No external consultants onsite",
                                     "No disruption to sales flow",
+                                    "No department restructuring required",
                                     "No new complex systems to manage"
                                 ].map(item => (
                                     <li key={item} style={{ marginBottom: '1rem', display: 'flex', gap: '1rem', alignItems: 'center' }}>
@@ -251,7 +260,9 @@ const Implementation: React.FC = () => {
                     <div style={{ maxWidth: '800px', margin: '0 auto' }}>
                         <h2 style={{ fontSize: '2.4rem', fontWeight: 800, marginBottom: '2rem' }}>Why This Doesn’t Become “Another Initiative”</h2>
                         <p style={{ fontSize: '1.2rem', color: '#666', lineHeight: 1.6, marginBottom: '4rem' }}>
-                            Most training fails because reinforcement fades. The excitement of a "training event" wears off by the following Tuesday. AutoDrive solves this by structural embedding.
+                            Initiatives fail when measurement fades.<br />
+                            Measurement fades when accountability is manual.<br />
+                            AutoDrive automates reinforcement.
                         </p>
 
                         <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1rem', marginBottom: '4rem' }}>
@@ -284,9 +295,9 @@ const Implementation: React.FC = () => {
 
                     <div className="mobile-stack" style={{ display: 'flex', gap: '2rem', alignItems: 'stretch', justifyContent: 'center' }}>
                         {[
-                            { day: "Day 1", title: "Activation", desc: "Dashboard live. First drill assigned." },
-                            { day: "Day 30", title: "Pattern Visibility", desc: "Skill trends measurable. Coaching calibrated." },
-                            { day: "Day 90", title: "Culture Stabilized", desc: "Behavior consistent. CX predictable." }
+                            { day: "Day 1", title: "Activation", desc: "Dashboard live. First execution rep assigned." },
+                            { day: "Day 30", title: "Pattern Visibility", desc: "Skill trends measurable across departments. Coaching calibrated." },
+                            { day: "Day 90", title: "Culture Stabilized", desc: "Cross-department behavior aligned. CX predictable." }
                         ].map((step) => (
                             <div key={step.day} style={{
                                 flex: '1', minWidth: '280px', background: '#fff', padding: 'clamp(1.5rem, 5vw, 3rem)',

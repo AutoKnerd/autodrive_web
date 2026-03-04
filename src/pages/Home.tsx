@@ -53,6 +53,9 @@ const Home: React.FC = () => {
                                 <span style={{ fontWeight: 500, opacity: 0.95, fontSize: 'clamp(1.05rem, 2.1vw, 1.5rem)', color: '#d7e2eb', maxWidth: '900px', display: 'block' }}>
                                     AutoDrive is the manager-led execution system that keeps dealership performance consistent when pressure hits.
                                 </span>
+                                <span style={{ fontWeight: 500, opacity: 0.7, fontSize: '0.95rem', color: '#c4ccd6', maxWidth: '900px', display: 'block', marginTop: '0.7rem' }}>
+                                    Across sales, service, BDC, and fixed operations.
+                                </span>
                             </div>
                         </div>
 
@@ -225,6 +228,9 @@ const Home: React.FC = () => {
                             <div style={{ position: 'absolute', top: '1.5rem', right: '1.5rem', fontSize: '0.6rem', opacity: 0.3, color: '#000', letterSpacing: '0.3em', textTransform: 'uppercase' }}>
                                 Performance Snapshot // Live
                             </div>
+                            <p style={{ fontSize: '0.66rem', fontWeight: 800, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.9rem' }}>
+                                Multi-Department Behavioral Metrics
+                            </p>
 
                             <div style={{ marginTop: '1rem', display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: '0.9rem' }}>
                                 {snapshotMetrics.map((metric) => (
@@ -269,7 +275,7 @@ const Home: React.FC = () => {
                                 layer: 'Layer 01 // Execution Layer',
                                 title: 'Floor Behavior Control',
                                 lines: [
-                                    'Daily reps lock in greeting, discovery, follow-up, and handoff standards.',
+                                    'Daily reps lock in customer-facing and operational standards across every department.',
                                     'This layer produces the operating signal used by management and ownership.'
                                 ]
                             },
@@ -360,10 +366,13 @@ const Home: React.FC = () => {
                                 <p style={{ color: 'rgba(255,255,255,0.64)', fontSize: '0.98rem', lineHeight: 1.6, maxWidth: '620px' }}>
                                     Execution is logged. Drift is detected early. Coaching is triggered before performance degrades.
                                 </p>
+                                <p style={{ color: 'rgba(255,255,255,0.56)', fontSize: '0.92rem', lineHeight: 1.55, maxWidth: '620px', marginTop: '0.6rem' }}>
+                                    This control system governs behavior across sales, service, and fixed operations to maintain cross-department continuity.
+                                </p>
                             </div>
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
                                 {[
-                                    { num: '01', title: "Daily Execution Layer", body: "Micro-Drill and Live Application reps are completed in the live dealership workflow." },
+                                    { num: '01', title: "Daily Execution Layer", body: "Execution Rep and Live Application workflows are completed across the floor, including service-lane interactions and BDC response compliance." },
                                     { num: '02', title: "Behavior Logging Layer", body: "Every completed rep is recorded through Skill Logging for manager-level visibility." },
                                     { num: '03', title: "Drift Detection Layer", body: "Drift Signal flags deviations from standard before CSI and gross are impacted.", highlight: true },
                                     { num: '04', title: "Governance & Support", body: "Manager Coaching and Weekly Reinforcement close the loop and sustain standards." }
@@ -400,7 +409,7 @@ const Home: React.FC = () => {
                                 }}
                             />
                             {[
-                                { state: "EXECUTION", title: "Micro-Drills & Live Application" },
+                                { state: "EXECUTION", title: "Execution Reps & Live Application" },
                                 { state: "LOGGING", title: "Behavior Logged & Time-Stamped" },
                                 { state: "DETECTION", title: "Drift Signal Monitored" },
                                 { state: "CORRECTION", title: "Manager Coaching Triggered" }
@@ -471,7 +480,7 @@ const Home: React.FC = () => {
                     <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
                         {/* Cards */}
                         {[
-                            { role: 'Consultant', items: ['AI-guided execution reinforcement', 'Real-time behavioral correction', 'Structured advancement path'], cta: 'Join Private Beta', link: '#beta', primary: true },
+                            { role: 'Consultant / Advisor', items: ['AI-guided execution reinforcement', 'Real-time behavioral correction', 'Structured performance progression'], cta: 'Join Private Beta', link: '#beta', primary: true },
                             { role: 'Manager', items: ['Automated accountability engine', 'Coaching coverage control', 'Drift intervention controls'], cta: 'Explore Dealership Implementation', link: '/implementation', primary: false },
                             { role: 'Dealer Principal', items: ['Executive performance command view', 'Gross risk visibility', 'Enterprise-wide execution standardization'], cta: 'Request Executive Brief', link: '/implementation', primary: false }
                         ].map(card => (
