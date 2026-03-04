@@ -334,15 +334,19 @@ const Home: React.FC = () => {
 
                     <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '4rem', alignItems: 'start' }}>
                         <div style={{ width: '100%', position: 'relative' }}>
-                            <div style={{ position: 'absolute', top: '0', left: '0', width: '100%', height: '100%', background: 'radial-gradient(circle at 50% 50%, rgba(102, 184, 72, 0.1) 0%, transparent 70%)', filter: 'blur(40px)', zIndex: 1 }} />
-                            <div style={{ position: 'relative', zIndex: 10, padding: '1.5rem', border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.02)', backdropFilter: 'blur(5px)' }}>
-                                <p style={{ fontSize: '0.62rem', fontWeight: 800, color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '1.5rem' }}>
-                                    System Architecture // The Reinforcement System v4.0
-                                </p>
+                            <div style={{ position: 'relative', zIndex: 10, padding: '2rem', border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.01)' }}>
+                                <div style={{ marginBottom: '2rem', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '1rem' }}>
+                                    <p style={{ fontSize: 'clamp(0.5rem, 1.2vw, 0.58rem)', fontWeight: 900, color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: '0.3em', marginBottom: '0.3rem' }}>
+                                        SYSTEM ARCHITECTURE // REINFORCEMENT LOOP
+                                    </p>
+                                    <p style={{ fontSize: 'clamp(0.45rem, 1.1vw, 0.5rem)', fontWeight: 400, color: 'rgba(255,255,255,0.2)', textTransform: 'uppercase', letterSpacing: '0.15em' }}>
+                                        Version 4.0 – Behavioral Control Framework
+                                    </p>
+                                </div>
                                 <img
-                                    src="/reinforcement-system.png"
-                                    alt="The Reinforcement System: Micro-Drill, Live Application, Skill Logging, Drift Signal, Manager Coaching, and Weekly Reinforcement loop"
-                                    style={{ width: '100%', display: 'block', borderRadius: '4px', filter: 'contrast(1.05) brightness(1.05)' }}
+                                    src="/reinforcement-loop-v4.png"
+                                    alt="Reinforcement Loop: Behavioral Control Framework"
+                                    style={{ width: '100%', display: 'block', borderRadius: '2px', opacity: 0.95 }}
                                 />
                             </div>
                         </div>
