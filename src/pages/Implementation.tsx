@@ -21,16 +21,31 @@ const Implementation: React.FC = () => {
                 overflow: 'hidden'
             }}>
                 {/* Subtle Architecture background */}
-                {/* Architectural Background */}
+                {/* Architectural Dealership Background */}
                 <div style={{
                     position: 'absolute', top: 0, right: 0, width: '100%', height: '100%',
-                    backgroundImage: 'url("/implementation-hero.png")', backgroundSize: 'cover', backgroundPosition: 'center',
-                    maskImage: 'linear-gradient(to right, rgba(0,0,0,1) 25%, rgba(0,0,0,0) 80%)',
-                    WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,1) 25%, rgba(0,0,0,0) 80%)',
-                    opacity: 0.45,
+                    backgroundImage: `
+                        linear-gradient(to right, rgba(10, 11, 13, 1) 20%, rgba(10, 11, 13, 0.4) 60%, rgba(10, 11, 13, 0.8) 100%),
+                        url("/hero-visual-dealership.png")
+                    `,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    opacity: 0.5,
                     zIndex: 1,
-                    filter: 'saturate(0.4) brightness(0.6)'
-                }}></div>
+                    filter: 'grayscale(0.3) contrast(1.1) brightness(0.7)'
+                }}>
+                    {/* Subtle Engineering Grid Overlay */}
+                    <div style={{
+                        position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
+                        backgroundImage: `
+                            linear-gradient(rgba(102, 184, 72, 0.05) 1px, transparent 1px),
+                            linear-gradient(90deg, rgba(102, 184, 72, 0.05) 1px, transparent 1px)
+                        `,
+                        backgroundSize: '40px 40px',
+                        maskImage: 'radial-gradient(circle at 70% 50%, black, transparent 70%)',
+                        WebkitMaskImage: 'radial-gradient(circle at 70% 50%, black, transparent 70%)'
+                    }}></div>
+                </div>
 
                 <div className="container hero-content" style={{ position: 'relative', zIndex: 10 }}>
                     <motion.div
@@ -54,7 +69,7 @@ const Implementation: React.FC = () => {
                                 Installed across departments. Governed by management. Visible to ownership.
                             </p>
                             <p style={{ fontSize: '1.1rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.6, maxWidth: '600px' }}>
-                                Implementation is structured, phased, and built around your existing workflow. No sudden shifts. Just systematic evolution.
+                                Implementation is structured, phased, and built around your existing dealership workflows. No sudden shifts. Just systematic evolution.
                             </p>
                         </div>
 
@@ -71,6 +86,9 @@ const Implementation: React.FC = () => {
                 <div className="container">
                     <div style={{ textAlign: 'center', marginBottom: '6rem' }}>
                         <h2 style={{ fontSize: '2.4rem', fontWeight: 800, letterSpacing: '-0.02em' }}>A Structured Rollout, Not a Training Event</h2>
+                        <p style={{ marginTop: '0.9rem', fontSize: '1.05rem', color: '#666', lineHeight: 1.55 }}>
+                            Sales, service, BDC, and support teams participate in the same reinforcement loop.
+                        </p>
                     </div>
 
                     <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1px', background: '#eee', border: '1px solid #eee' }}>
@@ -96,7 +114,7 @@ const Implementation: React.FC = () => {
                             {
                                 phase: "Phase 4",
                                 title: "Performance Stabilization",
-                                items: ["Skill trendlines visible", "Coaching prompts triggered automatically", "Culture becomes predictable"],
+                                items: ["Behavior trendlines visible", "Coaching prompts triggered automatically", "Culture becomes predictable"],
                                 desc: "Consistency becomes structural, not motivational."
                             }
                         ].map((p, i) => (
@@ -141,7 +159,7 @@ const Implementation: React.FC = () => {
 
                         <div className="mobile-stack" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', width: '100%' }}>
                             {[
-                                { day: "Monday", time: "5 MIN", task: "Execution rep before shift start.", icon: <Zap size={20} /> },
+                                { day: "Monday", time: "5 MIN", task: "Execution rep aligned to today's workflow.", icon: <Zap size={20} /> },
                                 { day: "Wednesday", time: "DATA", task: "Manager sees workflow handoff gap between departments.", icon: <TrendingUp size={20} /> },
                                 { day: "Friday", time: "10 MIN", task: "Reinforcement meeting using auto-generated guide.", icon: <Users size={20} /> }
                             ].map((item, i) => (
@@ -192,7 +210,7 @@ const Implementation: React.FC = () => {
                             },
                             {
                                 role: "For Frontline Teams",
-                                items: ["Execution reps", "Performance progression", "Role-based progression"]
+                                items: ["Execution reps", "Performance visibility", "Role-based progression"]
                             }
                         ].map((role) => (
                             <div key={role.role} style={{
@@ -227,6 +245,7 @@ const Implementation: React.FC = () => {
                                     "No external consultants onsite",
                                     "No disruption to sales flow",
                                     "No department restructuring required",
+                                    "No new hiring required",
                                     "No new complex systems to manage"
                                 ].map(item => (
                                     <li key={item} style={{ marginBottom: '1rem', display: 'flex', gap: '1rem', alignItems: 'center' }}>
