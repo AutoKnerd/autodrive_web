@@ -354,45 +354,61 @@ const Home: React.FC = () => {
                         <div>
                             <div style={{ borderLeft: '2px solid var(--logo-green)', paddingLeft: '2rem', marginBottom: '3rem' }}>
                                 <h3 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '1rem', color: '#fff', letterSpacing: '-0.01em' }}>Infrastructure of Alignment</h3>
-                                <p style={{ color: 'rgba(255,255,255,0.72)', fontSize: '1.05rem', lineHeight: 1.65, maxWidth: '620px' }}>
-                                    AutoDrive runs a daily control loop across execution, visibility, and correction.
-                                    Every behavior rep is logged, drift is surfaced early, and coaching triggers are routed to managers before performance degrades.
+                                <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.22rem', fontWeight: 700, lineHeight: 1.35, marginBottom: '0.75rem', maxWidth: '620px' }}>
+                                    AutoDrive runs a daily behavioral control loop.
+                                </p>
+                                <p style={{ color: 'rgba(255,255,255,0.64)', fontSize: '0.98rem', lineHeight: 1.6, maxWidth: '620px' }}>
+                                    Execution is logged. Drift is detected early. Coaching is triggered before performance degrades.
                                 </p>
                             </div>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.4rem' }}>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
                                 {[
-                                    { title: "Daily Execution Layer", body: "Focuses on Micro-Drills and Live Application reps conducted directly on the floor." },
-                                    { title: "Behavior Logging Layer", body: "Every completed rep is logged so managers track Skill Logging and behavior durability." },
-                                    { title: "Drift Detection Layer", body: "The system surfaces the Drift Signal immediately when standards deviate from the baseline.", highlight: true },
-                                    { title: "Governance & Support", body: "Triggers convert metrics into Manager Coaching and Weekly Reinforcement loops." }
+                                    { num: '01', title: "Daily Execution Layer", body: "Micro-Drill and Live Application reps are completed in the live dealership workflow." },
+                                    { num: '02', title: "Behavior Logging Layer", body: "Every completed rep is recorded through Skill Logging for manager-level visibility." },
+                                    { num: '03', title: "Drift Detection Layer", body: "Drift Signal flags deviations from standard before CSI and gross are impacted.", highlight: true },
+                                    { num: '04', title: "Governance & Support", body: "Manager Coaching and Weekly Reinforcement close the loop and sustain standards." }
                                 ].map((feature, i) => (
-                                    <div key={i} style={{ borderTop: i === 0 ? '1px solid rgba(255,255,255,0.12)' : '1px solid rgba(255,255,255,0.08)', paddingTop: '1rem', position: 'relative' }}>
-                                        <h4 style={{ fontSize: '0.78rem', fontWeight: 800, color: feature.highlight ? '#fbbf24' : 'rgba(255,255,255,0.72)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                                    <div key={i} style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '1.15rem', paddingLeft: feature.highlight ? '0.75rem' : 0, borderLeft: feature.highlight ? '1px solid rgba(251,191,36,0.35)' : 'none', position: 'relative' }}>
+                                        {feature.highlight && <span className="drift-monitor-line" aria-hidden="true" />}
+                                        <h4 style={{ fontSize: '0.82rem', fontWeight: feature.highlight ? 900 : 800, color: feature.highlight ? '#fbbf24' : 'rgba(255,255,255,0.74)', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: '0.45rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                                             {feature.highlight && <AlertTriangle size={14} />}
-                                            {feature.title}
+                                            {feature.num} — {feature.title}
                                         </h4>
-                                        <p style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.62)', lineHeight: 1.55 }}>{feature.body}</p>
+                                        <p style={{ fontSize: '0.96rem', color: 'rgba(255,255,255,0.62)', lineHeight: 1.55 }}>{feature.body}</p>
                                     </div>
                                 ))}
                             </div>
+                            <p style={{ marginTop: '2rem', fontSize: '1.02rem', fontWeight: 600, color: 'rgba(255,255,255,0.82)', letterSpacing: '0.01em' }}>
+                                Four layers. One control system.
+                            </p>
                         </div>
                     </div>
                 </div>
 
                 <div className="container" style={{ marginTop: '8rem', position: 'relative', zIndex: 10 }}>
-                    <div style={{ background: 'rgba(255,255,255,0.02)', padding: '4rem', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.05)', backdropFilter: 'blur(10px)' }}>
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem' }}>
+                    <div style={{ background: 'rgba(255,255,255,0.02)', padding: '4rem', borderRadius: 0, border: '1px solid rgba(255,255,255,0.08)' }}>
+                        <div style={{ position: 'relative', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem' }}>
+                            <div
+                                style={{
+                                    position: 'absolute',
+                                    top: '1.7rem',
+                                    left: '2%',
+                                    right: '2%',
+                                    height: '1px',
+                                    background: 'rgba(255,255,255,0.16)',
+                                    zIndex: 0
+                                }}
+                            />
                             {[
-                                { event: "Micro-Drill", msg: "Tone & Body Language Reps", status: "SYNCED" },
-                                { event: "Live Log", msg: "3-Step Greeting Validated", status: "VALID" },
-                                { event: "Trend Check", msg: "Consistency Score: 94%", status: "OPTIMAL" },
-                                { event: "Coaching", msg: "Manager Insight Prompted", status: "REINFORCED" }
+                                { state: "EXECUTION", title: "Micro-Drills & Live Application" },
+                                { state: "LOGGING", title: "Behavior Logged & Time-Stamped" },
+                                { state: "DETECTION", title: "Drift Signal Monitored" },
+                                { state: "CORRECTION", title: "Manager Coaching Triggered" }
                             ].map((step, i) => (
-                                <div key={step.event} style={{ textAlign: 'center' }}>
-                                    <span style={{ fontSize: '0.7rem', fontWeight: 900, color: 'rgba(255,255,255,0.3)' }}>PHASE 0{i + 1} // SYSTEM CYCLE</span>
-                                    <div style={{ margin: '1rem 0', height: '2px', background: i === 3 ? 'var(--logo-green)' : 'rgba(255,255,255,0.1)' }}></div>
-                                    <h4 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#fff' }}>{step.event}</h4>
-                                    <p style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.4)' }}>{step.msg}</p>
+                                <div key={step.state} style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
+                                    <span style={{ fontSize: '0.72rem', fontWeight: 900, letterSpacing: '0.12em', color: 'rgba(255,255,255,0.62)' }}>{step.state}</span>
+                                    <div style={{ margin: '1rem 0', height: '2px', background: i === 2 ? 'rgba(251,191,36,0.55)' : 'rgba(255,255,255,0.22)' }}></div>
+                                    <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#fff' }}>{step.title}</h4>
                                 </div>
                             ))}
                         </div>
@@ -400,24 +416,67 @@ const Home: React.FC = () => {
                 </div>
             </section>
 
-            <section className="dark-section" style={{ padding: '10rem 5%', textAlign: 'center', background: '#0a0b0d', borderTop: '1px solid rgba(255,255,255,0.03)' }}>
+            <section className="dark-section" style={{ padding: '6rem 5%', background: '#0a0b0d', borderTop: '1px solid rgba(255,255,255,0.03)' }}>
                 <div className="container">
-                    <h3 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', fontWeight: 800, color: '#fff', lineHeight: 1.2 }}>Most dealerships train in bursts.<br />AutoDrive reinforces daily.</h3>
-                    <p style={{ fontSize: 'clamp(1.1rem, 2vw, 1.3rem)', color: 'rgba(255,255,255,0.5)', maxWidth: '850px', margin: '2rem auto 0' }}>Consistency is what happens when behavior is measured every day and coached every week.</p>
+                    <h3 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.4rem)', fontWeight: 800, color: '#fff', lineHeight: 1.15, marginBottom: '2rem' }}>
+                        Most dealerships train in bursts.<br />AutoDrive reinforces daily.
+                    </h3>
+                    <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2.5rem', border: '1px solid rgba(255,255,255,0.08)', padding: '2rem' }}>
+                        <div style={{ paddingRight: '1.5rem', borderRight: '1px solid rgba(255,255,255,0.1)' }}>
+                            <p style={{ fontSize: '0.76rem', fontWeight: 900, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)', marginBottom: '1rem' }}>
+                                Burst Training Model
+                            </p>
+                            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                                {[
+                                    'Event-based learning',
+                                    'Memory fades without repetition',
+                                    'No logged behavior',
+                                    'No feedback loop'
+                                ].map((item) => (
+                                    <li key={item} style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.72)', lineHeight: 1.45 }}>
+                                        - {item}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                        <div style={{ paddingLeft: '1.5rem' }}>
+                            <p style={{ fontSize: '0.76rem', fontWeight: 900, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)', marginBottom: '1rem' }}>
+                                AutoDrive Reinforcement Model
+                            </p>
+                            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                                {[
+                                    'Daily micro-reinforcement',
+                                    'Behavior logged and measured',
+                                    'Drift detection',
+                                    'Manager intervention loop'
+                                ].map((item) => (
+                                    <li key={item} style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.72)', lineHeight: 1.45 }}>
+                                        - {item}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                    <p style={{ fontSize: 'clamp(1rem, 1.8vw, 1.12rem)', color: 'rgba(255,255,255,0.42)', maxWidth: '900px', marginTop: '1.6rem' }}>
+                        Consistency is what happens when behavior is measured every day and coached every week.
+                    </p>
                 </div>
             </section>
 
             <section className="light-section" style={{ borderTop: '1px solid rgba(0,0,0,0.05)', background: '#fff' }}>
                 <div className="container">
+                    <p style={{ fontSize: '0.78rem', fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(18,17,17,0.62)', marginBottom: '1.5rem' }}>
+                        The Operating System by Role.
+                    </p>
                     <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
                         {/* Cards */}
                         {[
-                            { role: 'Consultant', items: ['AI-guided skill development', 'Real-time performance feedback', 'Career-defining training path'], cta: 'Join Private Beta', link: '#beta', primary: true },
-                            { role: 'Manager', items: ['Automated team accountability', 'Coaching visibility & tracking', 'Culture stability controls'], cta: 'Explore Dealership Implementation', link: '/implementation', primary: false },
-                            { role: 'Dealer Principal', items: ['Executive performance clarity', 'Gross profit risk mitigation', 'Enterprise-level scalability'], cta: 'Explore Dealership Implementation', link: '/implementation', primary: false }
+                            { role: 'Consultant', items: ['AI-guided execution reinforcement', 'Real-time behavioral correction', 'Structured advancement path'], cta: 'Join Private Beta', link: '#beta', primary: true },
+                            { role: 'Manager', items: ['Automated accountability engine', 'Coaching coverage control', 'Drift intervention controls'], cta: 'Explore Dealership Implementation', link: '/implementation', primary: false },
+                            { role: 'Dealer Principal', items: ['Executive performance command view', 'Gross risk visibility', 'Enterprise-wide execution standardization'], cta: 'Request Executive Brief', link: '/implementation', primary: false }
                         ].map(card => (
-                            <div key={card.role} style={{ padding: 'clamp(1.5rem, 5vw, 3rem)', background: '#fff', border: '1px solid #eee' }}>
-                                <h3 style={{ fontSize: '1.25rem', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '2rem', opacity: 0.6 }}>{card.role}</h3>
+                            <div key={card.role} style={{ padding: 'clamp(1.5rem, 5vw, 2.6rem)', borderLeft: '1px solid rgba(0,0,0,0.1)' }}>
+                                <h3 style={{ fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '1.7rem', fontWeight: 800, opacity: 0.75 }}>{card.role}</h3>
                                 <ul style={{ listStyle: 'none', marginBottom: '3rem' }}>
                                     {card.items.map(item => <li key={item} style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '1rem' }}><ChevronRight size={16} /> {item}</li>)}
                                 </ul>
@@ -432,14 +491,26 @@ const Home: React.FC = () => {
                 </div>
             </section>
 
-            <section className="dark-section" style={{ minHeight: '80vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', textAlign: 'center' }}>
+            <section className="dark-section" style={{ minHeight: '80vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', textAlign: 'center', padding: '12rem 5%' }}>
                 <div className="container">
-                    <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', marginBottom: '1.5rem', color: '#fff' }}>Dealership performance will not<br />improve by accident.</h2>
-                    <h3 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 400, opacity: 0.9, marginBottom: '2rem', color: '#fff' }}>It will improve by design.</h3>
-                    <p style={{ color: 'var(--text-secondary-dark)', fontSize: '1.2rem', marginBottom: '4rem' }}>AutoDrive installs design into daily behavior.</p>
+                    <p style={{ fontSize: '0.72rem', fontWeight: 800, color: 'rgba(255,255,255,0.42)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '1rem' }}>
+                        System Deployment
+                    </p>
+                    <h2 style={{ fontSize: 'clamp(2.4rem, 5vw, 3.8rem)', marginBottom: '1rem', color: '#fff', lineHeight: 1.12 }}>
+                        Performance does not drift upward.<br />
+                        It degrades without control.
+                    </h2>
+                    <h3 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, opacity: 0.96, marginBottom: '2.2rem', color: '#fff', lineHeight: 1.05 }}>
+                        AutoDrive installs control.
+                    </h3>
+                    <p style={{ color: 'rgba(255,255,255,0.58)', fontSize: '1.05rem', marginBottom: '4rem', lineHeight: 1.75 }}>
+                        Installed in daily reps.<br />
+                        Measured in weekly coaching.<br />
+                        Protected at the executive level.
+                    </p>
                     <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
                         <a href="#beta" className="btn btn-primary">Join Private Beta</a>
-                        <Link to="/implementation" className="btn btn-ghost" style={{ textDecoration: 'none' }}>Explore Dealership Implementation</Link>
+                        <Link to="/implementation" className="btn btn-ghost" style={{ textDecoration: 'none' }}>View 90-Day Rollout</Link>
                     </div>
                 </div>
             </section>
