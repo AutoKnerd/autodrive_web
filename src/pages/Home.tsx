@@ -329,18 +329,18 @@ const Home: React.FC = () => {
                     </div>
 
                     <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '4rem', alignItems: 'start' }}>
-                        <div style={{ width: '100%', padding: '1.5rem', border: '1px solid rgba(255,255,255,0.12)', background: 'rgba(255,255,255,0.01)' }}>
-                            <p style={{ fontSize: '0.72rem', fontWeight: 800, color: 'rgba(255,255,255,0.65)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '0.9rem' }}>
-                                SYSTEM LOOP // CLOSED CONTROL
-                            </p>
-                            <img
-                                src="/the-reinforcement-system.svg"
-                                alt="The Reinforcement System closed-loop execution diagram"
-                                style={{ width: '100%', display: 'block', border: '1px solid rgba(255,255,255,0.16)', borderRadius: 0 }}
-                            />
-                            <p style={{ fontSize: '0.74rem', color: 'rgba(255,255,255,0.56)', marginTop: '0.9rem', letterSpacing: '0.04em' }}>
-                                Repetition → Measurement → Drift Signal → Manager Correction → Reinforcement
-                            </p>
+                        <div style={{ width: '100%', position: 'relative' }}>
+                            <div style={{ position: 'absolute', top: '0', left: '0', width: '100%', height: '100%', background: 'radial-gradient(circle at 50% 50%, rgba(102, 184, 72, 0.1) 0%, transparent 70%)', filter: 'blur(40px)', zIndex: 1 }} />
+                            <div style={{ position: 'relative', zIndex: 10, padding: '1.5rem', border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.02)', backdropFilter: 'blur(5px)' }}>
+                                <p style={{ fontSize: '0.62rem', fontWeight: 800, color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '1.5rem' }}>
+                                    System Architecture // Control Loop v3.2
+                                </p>
+                                <img
+                                    src="/reinforcement-system.png"
+                                    alt="The Reinforcement System high-fidelity 3D architecture"
+                                    style={{ width: '100%', display: 'block', borderRadius: '4px', filter: 'contrast(1.1) brightness(1.1)' }}
+                                />
+                            </div>
                         </div>
 
                         <div>
