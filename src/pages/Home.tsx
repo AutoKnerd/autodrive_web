@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, AlertTriangle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
@@ -326,6 +326,10 @@ const Home: React.FC = () => {
                             Training events don’t<br />create <span style={{ color: 'rgba(255,255,255,0.2)' }}>consistency.</span>
                         </motion.h2>
                         <h2 style={{ fontSize: 'clamp(3rem, 6vw, 5.5rem)', color: 'var(--logo-green)', marginTop: '0.8rem' }}>Reinforcement does.</h2>
+                        <p style={{ marginTop: '2.5rem', color: 'rgba(255,255,255,0.6)', fontSize: '1.2rem', letterSpacing: '0.01em', maxWidth: '850px', margin: '2.5rem auto 0', lineHeight: 1.5 }}>
+                            Consistency is not a personality trait. <br />
+                            <span style={{ color: '#fff', fontWeight: 600 }}>It is engineered through repetition, measurement, and correction.</span>
+                        </p>
                     </div>
 
                     <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '4rem', alignItems: 'start' }}>
@@ -333,12 +337,12 @@ const Home: React.FC = () => {
                             <div style={{ position: 'absolute', top: '0', left: '0', width: '100%', height: '100%', background: 'radial-gradient(circle at 50% 50%, rgba(102, 184, 72, 0.1) 0%, transparent 70%)', filter: 'blur(40px)', zIndex: 1 }} />
                             <div style={{ position: 'relative', zIndex: 10, padding: '1.5rem', border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.02)', backdropFilter: 'blur(5px)' }}>
                                 <p style={{ fontSize: '0.62rem', fontWeight: 800, color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '1.5rem' }}>
-                                    System Architecture // Control Loop v3.2
+                                    System Architecture // The Reinforcement System v4.0
                                 </p>
                                 <img
                                     src="/reinforcement-system.png"
-                                    alt="The Reinforcement System high-fidelity 3D architecture"
-                                    style={{ width: '100%', display: 'block', borderRadius: '4px', filter: 'contrast(1.1) brightness(1.1)' }}
+                                    alt="The Reinforcement System: Micro-Drill, Live Application, Skill Logging, Drift Signal, Manager Coaching, and Weekly Reinforcement loop"
+                                    style={{ width: '100%', display: 'block', borderRadius: '4px', filter: 'contrast(1.05) brightness(1.05)' }}
                                 />
                             </div>
                         </div>
@@ -353,13 +357,16 @@ const Home: React.FC = () => {
                             </div>
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.4rem' }}>
                                 {[
-                                    { title: "Daily Execution Layer", body: "Micro-drills and live-floor reps reinforce greeting, discovery, handoff, and follow-up standards." },
-                                    { title: "Behavior Logging Layer", body: "Each completed rep is time-stamped so managers can see completion, consistency, and role-level gaps." },
-                                    { title: "Drift Detection Layer", body: "The system flags repeat misses and declining behaviors before CSI and gross are impacted." },
-                                    { title: "Coaching Trigger Layer", body: "Manager prompts convert drift alerts into scheduled corrections and documented follow-through." }
+                                    { title: "Daily Execution Layer", body: "Focuses on Micro-Drills and Live Application reps conducted directly on the floor." },
+                                    { title: "Behavior Logging Layer", body: "Every completed rep is logged so managers track Skill Logging and behavior durability." },
+                                    { title: "Drift Detection Layer", body: "The system surfaces the Drift Signal immediately when standards deviate from the baseline.", highlight: true },
+                                    { title: "Governance & Support", body: "Triggers convert metrics into Manager Coaching and Weekly Reinforcement loops." }
                                 ].map((feature, i) => (
-                                    <div key={i} style={{ borderTop: i === 0 ? '1px solid rgba(255,255,255,0.12)' : '1px solid rgba(255,255,255,0.08)', paddingTop: '1rem' }}>
-                                        <h4 style={{ fontSize: '0.78rem', fontWeight: 800, color: 'rgba(255,255,255,0.72)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '0.5rem' }}>{feature.title}</h4>
+                                    <div key={i} style={{ borderTop: i === 0 ? '1px solid rgba(255,255,255,0.12)' : '1px solid rgba(255,255,255,0.08)', paddingTop: '1rem', position: 'relative' }}>
+                                        <h4 style={{ fontSize: '0.78rem', fontWeight: 800, color: feature.highlight ? '#fbbf24' : 'rgba(255,255,255,0.72)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                                            {feature.highlight && <AlertTriangle size={14} />}
+                                            {feature.title}
+                                        </h4>
                                         <p style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.62)', lineHeight: 1.55 }}>{feature.body}</p>
                                     </div>
                                 ))}
