@@ -452,6 +452,9 @@ const Home: React.FC = () => {
                                     <p style={{ fontSize: 'clamp(0.45rem, 1.1vw, 0.5rem)', fontWeight: 400, color: 'rgba(255,255,255,0.2)', textTransform: 'uppercase', letterSpacing: '0.15em' }}>
                                         Reinforcement Loop — Behavioral Control Framework
                                     </p>
+                                    <p style={{ marginTop: '0.55rem', fontSize: 'clamp(0.5rem, 1.15vw, 0.56rem)', fontWeight: 400, color: 'rgba(255,255,255,0.45)', lineHeight: 1.45, letterSpacing: '0.02em', maxWidth: '95%' }}>
+                                        Operational reinforcement system governing daily execution, behavioral drift detection, and manager intervention loops.
+                                    </p>
                                 </div>
                                 <img
                                     src="/reinforcement-loop-v4.png"
