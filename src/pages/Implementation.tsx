@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, Users, Shield, Zap, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -6,6 +6,36 @@ import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 
 const Implementation: React.FC = () => {
+    const [showFloatingCta, setShowFloatingCta] = useState(false);
+    const [footerLift, setFooterLift] = useState(0);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const onScroll = () => {
+            const doc = document.documentElement;
+            const maxScrollable = doc.scrollHeight - window.innerHeight;
+            const progress = maxScrollable > 0 ? window.scrollY / maxScrollable : 0;
+            setShowFloatingCta(progress >= 0.3);
+
+            const pixelsFromBottom = doc.scrollHeight - (window.scrollY + window.innerHeight);
+            setFooterLift(Math.max(0, 140 - pixelsFromBottom));
+        };
+
+        const onResize = () => {
+            setIsMobile(window.innerWidth <= 768);
+            onScroll();
+        };
+
+        onResize();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onResize);
+
+        return () => {
+            window.removeEventListener('scroll', onScroll);
+            window.removeEventListener('resize', onResize);
+        };
+    }, []);
+
     return (
         <div className="implementation-page">
             <Navigation />
@@ -75,9 +105,19 @@ const Implementation: React.FC = () => {
                         </div>
 
                         <div style={{ display: 'flex', gap: 'clamp(1rem, 3vw, 1.5rem)', flexWrap: 'wrap' }}>
-                            <button className="btn btn-primary" style={{ padding: 'clamp(1rem, 3vw, 1.2rem) clamp(2rem, 5vw, 2.4rem)', fontSize: 'clamp(0.8rem, 2vw, 1rem)' }}>Schedule Implementation Call</button>
+                            <a
+                                href="https://calendar.app.google/QWRXFH9k24iZnBZWA"
+                                target="_blank"
+                                rel="noopener"
+                                style={{ textDecoration: 'none' }}
+                            >
+                                <button className="btn btn-primary" style={{ padding: 'clamp(1rem, 3vw, 1.2rem) clamp(2rem, 5vw, 2.4rem)', fontSize: 'clamp(0.8rem, 2vw, 1rem)' }}>Schedule Implementation Call</button>
+                            </a>
                             <Link to="/sample-rollout-plan" className="btn btn-ghost" style={{ padding: 'clamp(1rem, 3vw, 1.2rem) clamp(2rem, 5vw, 2.4rem)', fontSize: 'clamp(0.8rem, 2vw, 1rem)', textDecoration: 'none' }}>View Sample Rollout Plan</Link>
                         </div>
+                        <p style={{ marginTop: '0.9rem', fontSize: '0.88rem', color: 'rgba(255,255,255,0.58)', letterSpacing: '0.01em' }}>
+                            20-minute working session to map AutoDriveCX to your dealership structure.
+                        </p>
                     </motion.div>
                 </div>
             </section>
@@ -189,6 +229,25 @@ const Implementation: React.FC = () => {
                             ))}
                         </div>
                     </div>
+                </div>
+            </section>
+
+            <section className="light-section" style={{ padding: '6rem 5%', background: '#fff', borderTop: '1px solid rgba(0,0,0,0.05)' }}>
+                <div className="container" style={{ textAlign: 'center', maxWidth: '900px' }}>
+                    <h2 style={{ fontSize: 'clamp(1.9rem, 4vw, 2.6rem)', fontWeight: 800, marginBottom: '1rem', letterSpacing: '-0.02em' }}>
+                        See How This Would Work in Your Store
+                    </h2>
+                    <p style={{ fontSize: '1.08rem', color: '#666', lineHeight: 1.65, marginBottom: '2rem', maxWidth: '760px', marginLeft: 'auto', marginRight: 'auto' }}>
+                        Most dealerships begin with a short implementation conversation to pressure-test how AutoDriveCX would install inside their environment.
+                    </p>
+                    <a
+                        href="https://calendar.app.google/QWRXFH9k24iZnBZWA"
+                        target="_blank"
+                        rel="noopener"
+                        style={{ textDecoration: 'none' }}
+                    >
+                        <button className="btn btn-primary">Schedule Implementation Call</button>
+                    </a>
                 </div>
             </section>
 
@@ -337,6 +396,62 @@ const Implementation: React.FC = () => {
                     </div>
                 </div>
             </section>
+
+            <section className="light-section" style={{ padding: '6rem 5%', background: '#fff', borderTop: '1px solid rgba(0,0,0,0.05)' }}>
+                <div className="container" style={{ textAlign: 'center', maxWidth: '920px' }}>
+                    <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 800, marginBottom: '1rem', letterSpacing: '-0.02em' }}>
+                        Explore Implementation for Your Store
+                    </h2>
+                    <p style={{ fontSize: '1.05rem', color: '#666', lineHeight: 1.65, marginBottom: '0.9rem', maxWidth: '820px', marginLeft: 'auto', marginRight: 'auto' }}>
+                        Every dealership deploys AutoDriveCX slightly differently depending on leadership structure and operational flow.
+                    </p>
+                    <p style={{ fontSize: '1.05rem', color: '#666', lineHeight: 1.65, marginBottom: '2rem', maxWidth: '820px', marginLeft: 'auto', marginRight: 'auto' }}>
+                        A short implementation call allows us to map the rollout to your store and confirm whether the deployment model fits.
+                    </p>
+                    <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+                        <a
+                            href="https://calendar.app.google/QWRXFH9k24iZnBZWA"
+                            target="_blank"
+                            rel="noopener"
+                            style={{ textDecoration: 'none' }}
+                        >
+                            <button className="btn btn-primary">Schedule Implementation Call</button>
+                        </a>
+                        <Link to="/sample-rollout-plan" className="btn btn-ghost-dark" style={{ textDecoration: 'none' }}>
+                            View Sample Rollout Plan
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
+            <a
+                href="https://calendar.app.google/QWRXFH9k24iZnBZWA"
+                target="_blank"
+                rel="noopener"
+                aria-label="Schedule Implementation Call"
+                style={{
+                    position: 'fixed',
+                    right: isMobile ? '18px' : '24px',
+                    bottom: `${(isMobile ? 18 : 24) + footerLift}px`,
+                    padding: isMobile ? '12px 16px' : '14px 18px',
+                    borderRadius: '8px',
+                    background: 'var(--logo-green)',
+                    color: '#fff',
+                    zIndex: 1000,
+                    boxShadow: '0 10px 24px rgba(0, 0, 0, 0.22)',
+                    textDecoration: 'none',
+                    fontWeight: 700,
+                    fontSize: '0.86rem',
+                    letterSpacing: '0.04em',
+                    textTransform: 'uppercase',
+                    opacity: showFloatingCta ? 1 : 0,
+                    transform: showFloatingCta ? 'translateY(0)' : 'translateY(10px)',
+                    pointerEvents: showFloatingCta ? 'auto' : 'none',
+                    transition: 'opacity 220ms ease, transform 220ms ease, bottom 220ms ease'
+                }}
+            >
+                Schedule Implementation Call
+            </a>
 
             <Footer />
         </div>

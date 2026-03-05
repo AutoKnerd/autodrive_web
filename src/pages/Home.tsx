@@ -28,16 +28,14 @@ const Home: React.FC = () => {
 
             {/* Hero Section */}
             <section
-                className="dark-section"
+                className="dark-section home-hero"
                 style={{
                     minHeight: '100vh',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'center',
                     position: 'relative',
-                    overflow: 'hidden',
-                    paddingTop: 'clamp(110px, 12vw, 140px)',
-                    paddingBottom: 'clamp(60px, 8vw, 80px)'
+                    overflow: 'hidden'
                 }}
             >
                 {/* Hero Background Visual */}
@@ -97,7 +95,7 @@ const Home: React.FC = () => {
                             Most dealers start with a short implementation conversation to see how the system would install inside their store.
                         </p>
 
-                        <div style={{ marginTop: '2.2rem', marginBottom: '2.2rem', borderTop: '1px solid rgba(255,255,255,0.12)', borderBottom: '1px solid rgba(255,255,255,0.12)', padding: '1.15rem 0', textAlign: 'center', maxWidth: '760px' }}>
+                        <div className="home-hero-platform" style={{ marginBottom: '2.2rem', borderTop: '1px solid rgba(255,255,255,0.12)', borderBottom: '1px solid rgba(255,255,255,0.12)', padding: '1.15rem 0', textAlign: 'center', maxWidth: '760px' }}>
                             <p style={{ fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.16em', fontWeight: 800, color: 'rgba(255,255,255,0.62)', marginBottom: '0.45rem' }}>
                                 AUTODRIVECX PLATFORM
                             </p>
