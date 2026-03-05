@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight, AlertTriangle } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -7,6 +7,35 @@ import Footer from '../components/Footer';
 
 const Home: React.FC = () => {
     const [activeDriftMode, setActiveDriftMode] = useState<'typical' | 'autodrive'>('typical');
+    const [showFloatingCta, setShowFloatingCta] = useState(false);
+    const [footerLift, setFooterLift] = useState(0);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const onScroll = () => {
+            const doc = document.documentElement;
+            const maxScrollable = doc.scrollHeight - window.innerHeight;
+            const progress = maxScrollable > 0 ? window.scrollY / maxScrollable : 0;
+            setShowFloatingCta(progress >= 0.3);
+
+            const pixelsFromBottom = doc.scrollHeight - (window.scrollY + window.innerHeight);
+            setFooterLift(Math.max(0, 140 - pixelsFromBottom));
+        };
+
+        const onResize = () => {
+            setIsMobile(window.innerWidth <= 768);
+            onScroll();
+        };
+
+        onResize();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onResize);
+
+        return () => {
+            window.removeEventListener('scroll', onScroll);
+            window.removeEventListener('resize', onResize);
+        };
+    }, []);
 
     const snapshotMetrics = activeDriftMode === 'typical'
         ? [
@@ -86,7 +115,7 @@ const Home: React.FC = () => {
                         </div>
 
                         <div style={{ display: 'flex', gap: 'clamp(1rem, 3vw, 2rem)', flexWrap: 'wrap', alignItems: 'center' }}>
-                            <a href="#beta" className="btn btn-primary" style={{ padding: 'clamp(1rem, 3vw, 1.4rem) clamp(2rem, 5vw, 2.8rem)', fontSize: 'clamp(0.8rem, 2vw, 1rem)' }}>Schedule Implementation Call</a>
+                            <a href="https://calendar.app.google/QWRXFH9k24iZnBZWA" target="_blank" rel="noopener" className="btn btn-primary" style={{ padding: 'clamp(1rem, 3vw, 1.4rem) clamp(2rem, 5vw, 2.8rem)', fontSize: 'clamp(0.8rem, 2vw, 1rem)' }}>Schedule Implementation Call</a>
                             <Link to="/sample-rollout-plan" className="btn btn-ghost" style={{ padding: 'clamp(1rem, 3vw, 1.4rem) clamp(2rem, 5vw, 2.8rem)', textDecoration: 'none', fontSize: 'clamp(0.8rem, 2vw, 1rem)' }}>
                                 View Sample Rollout Plan
                             </Link>
@@ -327,9 +356,9 @@ const Home: React.FC = () => {
                         <p style={{ fontSize: '1.08rem', color: '#111827', lineHeight: 1.65, marginBottom: '1.25rem' }}>
                             Want to see how these operational signals would look inside your dealership?
                         </p>
-                        <Link to="/implementation" className="btn btn-primary" style={{ textDecoration: 'none' }}>
+                        <a href="https://calendar.app.google/QWRXFH9k24iZnBZWA" target="_blank" rel="noopener" className="btn btn-primary" style={{ textDecoration: 'none' }}>
                             Schedule Implementation Call
-                        </Link>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -621,9 +650,9 @@ const Home: React.FC = () => {
                         <p style={{ fontSize: '1.02rem', color: '#4b5563', lineHeight: 1.65, marginBottom: '1.25rem', maxWidth: '760px', marginLeft: 'auto', marginRight: 'auto' }}>
                             Most dealerships start with a short implementation conversation to pressure-test how the system would install inside their environment.
                         </p>
-                        <Link to="/implementation" className="btn btn-primary" style={{ textDecoration: 'none' }}>
+                        <a href="https://calendar.app.google/QWRXFH9k24iZnBZWA" target="_blank" rel="noopener" className="btn btn-primary" style={{ textDecoration: 'none' }}>
                             Schedule Implementation Call
-                        </Link>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -649,9 +678,9 @@ const Home: React.FC = () => {
                         ))}
                     </div>
                     <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginTop: '2rem' }}>
-                        <Link to="/implementation" className="btn btn-primary" style={{ textDecoration: 'none' }}>
+                        <a href="https://calendar.app.google/QWRXFH9k24iZnBZWA" target="_blank" rel="noopener" className="btn btn-primary" style={{ textDecoration: 'none' }}>
                             Schedule Implementation Call
-                        </Link>
+                        </a>
                         <Link to="/sample-rollout-plan" className="btn btn-ghost-dark" style={{ textDecoration: 'none' }}>
                             View Sample Rollout Plan
                         </Link>
@@ -682,6 +711,35 @@ const Home: React.FC = () => {
                     </div>
                 </div>
             </section>
+
+            <a
+                href="https://calendar.app.google/QWRXFH9k24iZnBZWA"
+                target="_blank"
+                rel="noopener"
+                aria-label="Schedule Implementation Call"
+                style={{
+                    position: 'fixed',
+                    right: isMobile ? '18px' : '24px',
+                    bottom: `${(isMobile ? 18 : 24) + footerLift}px`,
+                    padding: isMobile ? '12px 16px' : '14px 18px',
+                    borderRadius: '8px',
+                    background: 'var(--logo-green)',
+                    color: '#fff',
+                    zIndex: 1000,
+                    boxShadow: '0 10px 24px rgba(0, 0, 0, 0.22)',
+                    textDecoration: 'none',
+                    fontWeight: 700,
+                    fontSize: '0.86rem',
+                    letterSpacing: '0.04em',
+                    textTransform: 'uppercase',
+                    opacity: showFloatingCta ? 1 : 0,
+                    transform: showFloatingCta ? 'translateY(0)' : 'translateY(10px)',
+                    pointerEvents: showFloatingCta ? 'auto' : 'none',
+                    transition: 'opacity 220ms ease, transform 220ms ease, bottom 220ms ease'
+                }}
+            >
+                Schedule Implementation Call
+            </a>
 
             <Footer />
         </div>
