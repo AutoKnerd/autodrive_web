@@ -75,13 +75,15 @@ const SampleRolloutPlan: React.FC = () => {
                         </p>
 
                         <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                            <Link
-                                to="/implementation"
+                            <a
+                                href="https://calendar.app.google/QWRXFH9k24iZnBZWA"
+                                target="_blank"
+                                rel="noopener"
                                 className="btn btn-primary"
                                 style={{ textDecoration: 'none', padding: '1rem 2rem' }}
                             >
                                 Schedule Implementation Call
-                            </Link>
+                            </a>
                             <Link
                                 to="/#beta"
                                 className="btn btn-ghost"
@@ -188,9 +190,15 @@ const SampleRolloutPlan: React.FC = () => {
                         <p style={{ fontSize: '1.02rem', color: '#4b5563', lineHeight: 1.7, marginBottom: '1.6rem' }}>
                             Schedule a short implementation call to walk through how deployment would look in your store.
                         </p>
-                        <Link to="/implementation" className="btn btn-primary" style={{ textDecoration: 'none' }}>
+                        <a
+                            href="https://calendar.app.google/QWRXFH9k24iZnBZWA"
+                            target="_blank"
+                            rel="noopener"
+                            className="btn btn-primary"
+                            style={{ textDecoration: 'none' }}
+                        >
                             Schedule Implementation Call
-                        </Link>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -422,9 +430,15 @@ const SampleRolloutPlan: React.FC = () => {
                         Most dealerships use this call to pressure-test whether the system would actually work inside their store before making any decisions.
                     </p>
                     <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                        <Link to="/implementation" className="btn btn-primary" style={{ textDecoration: 'none' }}>
+                        <a
+                            href="https://calendar.app.google/QWRXFH9k24iZnBZWA"
+                            target="_blank"
+                            rel="noopener"
+                            className="btn btn-primary"
+                            style={{ textDecoration: 'none' }}
+                        >
                             Schedule Implementation Call
-                        </Link>
+                        </a>
                         <a href="#deployment-map" className="btn btn-ghost" style={{ textDecoration: 'none' }}>
                             View Deployment Plan
                         </a>
@@ -438,9 +452,15 @@ const SampleRolloutPlan: React.FC = () => {
                         See How AutoDriveCX Would Install in Your Store
                     </h2>
                     <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                        <Link to="/implementation" className="btn btn-primary" style={{ textDecoration: 'none' }}>
+                        <a
+                            href="https://calendar.app.google/QWRXFH9k24iZnBZWA"
+                            target="_blank"
+                            rel="noopener"
+                            className="btn btn-primary"
+                            style={{ textDecoration: 'none' }}
+                        >
                             Schedule Implementation Call
-                        </Link>
+                        </a>
                         <Link to="/#beta" className="btn btn-ghost" style={{ textDecoration: 'none' }}>
                             Join Private Beta
                         </Link>
