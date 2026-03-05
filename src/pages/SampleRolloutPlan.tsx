@@ -94,7 +94,7 @@ const SampleRolloutPlan: React.FC = () => {
                 </div>
             </section>
 
-            <section className="light-section" style={{ background: '#fff', padding: 'var(--spacing-huge) 5%' }}>
+            <section className="light-section" style={{ background: '#fff', padding: 'var(--spacing-huge) 5%', borderTop: '1px solid rgba(0,0,0,0.08)' }}>
                 <div className="container" style={{ maxWidth: '980px' }}>
                     <h2 style={{ fontSize: '2.2rem', fontWeight: 800, marginBottom: '1.5rem', letterSpacing: '-0.02em' }}>
                         Deployment Overview
@@ -114,7 +114,88 @@ const SampleRolloutPlan: React.FC = () => {
                 </div>
             </section>
 
-            <section className="light-section" style={{ background: '#f8f9fa', padding: 'var(--spacing-huge) 5%' }}>
+            <section
+                id="deployment-map"
+                className="dark-section"
+                style={{ background: '#111827', padding: 'var(--spacing-huge) 5%', borderTop: '1px solid rgba(255,255,255,0.08)' }}
+            >
+                <div className="container">
+                    <h2 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '2rem', letterSpacing: '-0.02em', color: 'rgba(255,255,255,0.94)' }}>
+                        90-Day Deployment Map
+                    </h2>
+                    <div style={{ border: '1px solid rgba(255,255,255,0.16)', background: '#0f172a' }}>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1px', background: 'rgba(255,255,255,0.1)' }}>
+                            {[
+                                { week: 'Week 1-2', stage: 'Activation' },
+                                { week: 'Week 3-4', stage: 'Manager Reinforcement' },
+                                { week: 'Week 5-8', stage: 'Department Adoption' },
+                                { week: 'Week 9-12', stage: 'Operational Stabilization' }
+                            ].map((item) => (
+                                <div key={item.week} style={{ background: '#111827', padding: '1.5rem 1.25rem' }}>
+                                    <p style={{ fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 800, color: 'rgba(255,255,255,0.55)', marginBottom: '0.5rem' }}>
+                                        {item.week}
+                                    </p>
+                                    <p style={{ fontSize: '1rem', fontWeight: 700, color: 'rgba(255,255,255,0.9)' }}>{item.stage}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section className="light-section" style={{ background: '#f7f7f7', padding: 'var(--spacing-huge) 5%', borderTop: '1px solid rgba(0,0,0,0.08)' }}>
+                <div className="container" style={{ maxWidth: '860px' }}>
+                    <h2 style={{ fontSize: '2.2rem', fontWeight: 800, marginBottom: '1.6rem', letterSpacing: '-0.02em' }}>
+                        Dealership Reality Check
+                    </h2>
+                    <p style={{ fontSize: '1.06rem', color: '#4b5563', lineHeight: 1.75, marginBottom: '1rem' }}>
+                        Dealership floors are unpredictable.
+                    </p>
+                    <p style={{ fontSize: '1.06rem', color: '#4b5563', lineHeight: 1.75, marginBottom: '1rem' }}>
+                        Managers are interrupted constantly.
+                        <br />
+                        Service lanes fill unexpectedly.
+                        <br />
+                        Sales teams juggle walk-ins, appointments, and digital leads at the same time.
+                    </p>
+                    <p style={{ fontSize: '1.06rem', color: '#4b5563', lineHeight: 1.75, marginBottom: '1rem' }}>
+                        Consistency doesn&apos;t fail because people don&apos;t care.
+                    </p>
+                    <p style={{ fontSize: '1.06rem', color: '#4b5563', lineHeight: 1.75, marginBottom: '1rem' }}>
+                        It fails because execution drifts under pressure.
+                    </p>
+                    <p style={{ fontSize: '1.06rem', color: '#4b5563', lineHeight: 1.75, marginBottom: '1rem' }}>
+                        AutoDriveCX was designed specifically for this environment.
+                    </p>
+                    <p style={{ fontSize: '1.06rem', color: '#4b5563', lineHeight: 1.75, marginBottom: '1rem' }}>
+                        Execution happens inside normal workflow.
+                        <br />
+                        Managers reinforce standards between real customer interactions.
+                        <br />
+                        Behavior is measured continuously instead of waiting for CSI reports weeks later.
+                    </p>
+                    <p style={{ fontSize: '1.06rem', color: '#4b5563', lineHeight: 1.75 }}>
+                        The system works because it fits how dealerships actually operate.
+                    </p>
+
+                    <div style={{ marginTop: '3rem', borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '2rem' }}>
+                        <h3 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: '1rem', letterSpacing: '-0.02em' }}>
+                            See How AutoDriveCX Would Deploy in Your Store
+                        </h3>
+                        <p style={{ fontSize: '1.02rem', color: '#4b5563', lineHeight: 1.7, marginBottom: '0.7rem' }}>
+                            Every dealership installs the system slightly differently depending on department structure and leadership coverage.
+                        </p>
+                        <p style={{ fontSize: '1.02rem', color: '#4b5563', lineHeight: 1.7, marginBottom: '1.6rem' }}>
+                            Schedule a short implementation call to walk through how deployment would look in your store.
+                        </p>
+                        <Link to="/implementation" className="btn btn-primary" style={{ textDecoration: 'none' }}>
+                            Schedule Implementation Call
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
+            <section className="light-section" style={{ background: '#f8f9fa', padding: 'var(--spacing-huge) 5%', borderTop: '1px solid rgba(0,0,0,0.08)' }}>
                 <div className="container">
                     <h2 style={{ fontSize: '2.2rem', fontWeight: 800, marginBottom: '3rem', letterSpacing: '-0.02em' }}>
                         The 90-Day Rollout Timeline
@@ -159,7 +240,29 @@ const SampleRolloutPlan: React.FC = () => {
                 </div>
             </section>
 
-            <section className="light-section" style={{ background: '#fff', padding: 'var(--spacing-huge) 5%' }}>
+            <section className="dark-section" style={{ background: '#111827', padding: 'var(--spacing-huge) 5%', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+                <div className="container">
+                    <h2 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '2rem', letterSpacing: '-0.02em', color: 'rgba(255,255,255,0.94)' }}>
+                        The AutoDriveCX Reinforcement Rhythm
+                    </h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1px', background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.16)' }}>
+                        {[
+                            { label: 'Daily', text: 'Execution Reps reinforce behavioral standards across departments.' },
+                            { label: 'Weekly', text: 'Managers operate the Reinforcement Loop.' },
+                            { label: 'Monthly', text: 'Ownership reviews compliance and drift trends.' }
+                        ].map((item) => (
+                            <div key={item.label} style={{ background: '#111827', padding: '1.8rem' }}>
+                                <p style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 800, color: 'rgba(255,255,255,0.56)', marginBottom: '0.65rem' }}>
+                                    {item.label}
+                                </p>
+                                <p style={{ fontSize: '0.98rem', color: 'rgba(255,255,255,0.78)', lineHeight: 1.6 }}>{item.text}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <section className="light-section" style={{ background: '#fff', padding: 'var(--spacing-huge) 5%', borderTop: '1px solid rgba(0,0,0,0.08)' }}>
                 <div className="container">
                     <h2 style={{ fontSize: '2.2rem', fontWeight: 800, marginBottom: '1.5rem', letterSpacing: '-0.02em' }}>
                         What Managers Actually Do
@@ -195,7 +298,7 @@ const SampleRolloutPlan: React.FC = () => {
                 </div>
             </section>
 
-            <section className="light-section" style={{ background: '#f8f9fa', padding: 'var(--spacing-huge) 5%' }}>
+            <section className="light-section" style={{ background: '#f8f9fa', padding: 'var(--spacing-huge) 5%', borderTop: '1px solid rgba(0,0,0,0.08)' }}>
                 <div className="container" style={{ maxWidth: '980px' }}>
                     <h2 style={{ fontSize: '2.2rem', fontWeight: 800, marginBottom: '1.5rem', letterSpacing: '-0.02em' }}>
                         What Teams Experience
@@ -214,7 +317,33 @@ const SampleRolloutPlan: React.FC = () => {
                 </div>
             </section>
 
-            <section className="light-section" style={{ background: '#fff', padding: 'var(--spacing-huge) 5%' }}>
+            <section className="dark-section" style={{ background: '#111827', padding: 'var(--spacing-huge) 5%', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+                <div className="container">
+                    <h2 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '2rem', letterSpacing: '-0.02em', color: 'rgba(255,255,255,0.94)' }}>
+                        Behavior Stabilization Milestones
+                    </h2>
+                    <div style={{ border: '1px solid rgba(255,255,255,0.16)', background: '#0f172a', padding: '1.25rem' }}>
+                        <div style={{ position: 'relative', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: '1rem' }}>
+                            <div style={{ position: 'absolute', left: '2%', right: '2%', top: '1.2rem', height: '1px', background: 'rgba(255,255,255,0.16)', zIndex: 0 }} />
+                            {[
+                                { day: 'Day 1', title: 'System Activation' },
+                                { day: 'Day 30', title: 'Behavior Pattern Visibility' },
+                                { day: 'Day 60', title: 'Early Drift Intervention' },
+                                { day: 'Day 90', title: 'Culture Stabilized' }
+                            ].map((item) => (
+                                <div key={item.day} style={{ position: 'relative', zIndex: 1, background: '#111827', padding: '0.5rem 0.75rem' }}>
+                                    <p style={{ fontSize: '0.76rem', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 800, color: 'rgba(255,255,255,0.56)', marginBottom: '0.55rem' }}>
+                                        {item.day}
+                                    </p>
+                                    <p style={{ fontSize: '0.98rem', fontWeight: 700, color: 'rgba(255,255,255,0.9)', lineHeight: 1.4 }}>{item.title}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section className="light-section" style={{ background: '#fff', padding: 'var(--spacing-huge) 5%', borderTop: '1px solid rgba(0,0,0,0.08)' }}>
                 <div className="container">
                     <h2 style={{ fontSize: '2.2rem', fontWeight: 800, marginBottom: '2rem', letterSpacing: '-0.02em' }}>
                         What Changes by Day 90
@@ -234,7 +363,7 @@ const SampleRolloutPlan: React.FC = () => {
                 </div>
             </section>
 
-            <section className="light-section" style={{ background: '#f8f9fa', padding: 'var(--spacing-huge) 5%' }}>
+            <section className="light-section" style={{ background: '#f8f9fa', padding: 'var(--spacing-huge) 5%', borderTop: '1px solid rgba(0,0,0,0.08)' }}>
                 <div className="container" style={{ maxWidth: '980px' }}>
                     <h2 style={{ fontSize: '2.2rem', fontWeight: 800, marginBottom: '1.5rem', letterSpacing: '-0.02em' }}>
                         Why This Rollout Works
@@ -252,7 +381,58 @@ const SampleRolloutPlan: React.FC = () => {
                 </div>
             </section>
 
-            <section className="dark-section" style={{ padding: '8rem 5%', background: '#0a0b0d', textAlign: 'center' }}>
+            <section
+                className="dark-section"
+                style={{ background: '#111827', padding: 'var(--spacing-huge) 5%', borderTop: '1px solid rgba(255,255,255,0.08)' }}
+            >
+                <div className="container" style={{ maxWidth: '860px' }}>
+                    <h2 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '1.4rem', letterSpacing: '-0.02em', color: '#fff' }}>
+                        Is This Happening in Your Store?
+                    </h2>
+                    <p style={{ fontSize: '1.04rem', color: 'rgba(255,255,255,0.78)', lineHeight: 1.7, marginBottom: '1.1rem' }}>
+                        If you&apos;re seeing any of the following patterns in your dealership, it may be time for a short implementation conversation:
+                    </p>
+                    <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 1.4rem 0' }}>
+                        <li style={{ fontSize: '1.04rem', color: 'rgba(255,255,255,0.78)', lineHeight: 1.65, marginBottom: '0.65rem' }}>
+                            • CSI or gross slipping without a clear root cause
+                        </li>
+                        <li style={{ fontSize: '1.04rem', color: 'rgba(255,255,255,0.78)', lineHeight: 1.65, marginBottom: '0.65rem' }}>
+                            • Managers stuck in fire drills instead of reinforcement
+                        </li>
+                        <li style={{ fontSize: '1.04rem', color: 'rgba(255,255,255,0.78)', lineHeight: 1.65, marginBottom: '0.65rem' }}>
+                            • Inconsistent handoffs between sales, service, and BDC
+                        </li>
+                        <li style={{ fontSize: '1.04rem', color: 'rgba(255,255,255,0.78)', lineHeight: 1.65 }}>
+                            • Standards changing by shift, by person, or by mood
+                        </li>
+                    </ul>
+                    <p style={{ fontSize: '1.04rem', color: 'rgba(255,255,255,0.78)', lineHeight: 1.7, marginBottom: '0.85rem' }}>
+                        The implementation call is a short working session.
+                        <br />
+                        We map AutoDriveCX to your dealership structure and confirm whether the deployment model fits.
+                    </p>
+                    <p style={{ fontSize: '1.04rem', color: 'rgba(255,255,255,0.78)', lineHeight: 1.7, marginBottom: '2rem' }}>
+                        No commitment.
+                        <br />
+                        No disruption plan.
+                        <br />
+                        Just clarity.
+                    </p>
+                    <p style={{ fontSize: '1.04rem', color: 'rgba(255,255,255,0.78)', lineHeight: 1.7, marginBottom: '1.4rem' }}>
+                        Most dealerships use this call to pressure-test whether the system would actually work inside their store before making any decisions.
+                    </p>
+                    <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                        <Link to="/implementation" className="btn btn-primary" style={{ textDecoration: 'none' }}>
+                            Schedule Implementation Call
+                        </Link>
+                        <a href="#deployment-map" className="btn btn-ghost" style={{ textDecoration: 'none' }}>
+                            View Deployment Plan
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section className="dark-section" style={{ padding: '8rem 5%', background: '#0a0b0d', textAlign: 'center', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
                 <div className="container">
                     <h2 style={{ fontSize: 'clamp(2.2rem, 4vw, 3.2rem)', color: '#fff', marginBottom: '2rem' }}>
                         See How AutoDriveCX Would Install in Your Store
