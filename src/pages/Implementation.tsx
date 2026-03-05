@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, Users, Shield, Zap, CheckCircle2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 
@@ -58,12 +59,12 @@ const Implementation: React.FC = () => {
                             Explore Dealership Implementation
                         </h1>
                         <h2 style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.8rem)', color: 'var(--logo-blue)', fontWeight: 500, marginBottom: '2rem', opacity: 0.9 }}>
-                            How AutoDrive integrates into your store without disrupting operations.
+                            How AutoDriveCX behavioral operating system integrates into your store without disrupting operations.
                         </h2>
 
                         <div style={{ borderLeft: '2px solid rgba(255,255,255,0.1)', paddingLeft: '2.5rem', marginBottom: '4rem' }}>
                             <p style={{ fontSize: '1.4rem', color: '#fff', marginBottom: '1rem', fontWeight: 600 }}>
-                                AutoDrive does not replace your managers. <span style={{ color: 'var(--logo-green)' }}>It equips them.</span>
+                                AutoDriveCX does not replace your managers. <span style={{ color: 'var(--logo-green)' }}>It equips them.</span>
                             </p>
                             <p style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.62)', marginBottom: '0.8rem', fontWeight: 600, letterSpacing: '0.01em' }}>
                                 Installed across departments. Governed by management. Visible to ownership.
@@ -75,7 +76,7 @@ const Implementation: React.FC = () => {
 
                         <div style={{ display: 'flex', gap: 'clamp(1rem, 3vw, 1.5rem)', flexWrap: 'wrap' }}>
                             <button className="btn btn-primary" style={{ padding: 'clamp(1rem, 3vw, 1.2rem) clamp(2rem, 5vw, 2.4rem)', fontSize: 'clamp(0.8rem, 2vw, 1rem)' }}>Schedule Implementation Call</button>
-                            <button className="btn btn-ghost" style={{ padding: 'clamp(1rem, 3vw, 1.2rem) clamp(2rem, 5vw, 2.4rem)', fontSize: 'clamp(0.8rem, 2vw, 1rem)' }}>View Sample Rollout Plan</button>
+                            <Link to="/sample-rollout-plan" className="btn btn-ghost" style={{ padding: 'clamp(1rem, 3vw, 1.2rem) clamp(2rem, 5vw, 2.4rem)', fontSize: 'clamp(0.8rem, 2vw, 1rem)', textDecoration: 'none' }}>View Sample Rollout Plan</Link>
                         </div>
                     </motion.div>
                 </div>
@@ -108,7 +109,7 @@ const Implementation: React.FC = () => {
                             {
                                 phase: "Phase 3",
                                 title: "Team Activation",
-                                items: ["Frontline teams activate daily execution reps within existing workflows", "Performance tracking begins immediately", "First weekly reinforcement meeting auto-generated"],
+                                items: ["Frontline teams activate daily Execution Reps within existing workflows", "Performance tracking begins immediately", "First weekly Reinforcement Loop session auto-generated"],
                                 desc: "Behavior shifts within week one."
                             },
                             {
@@ -150,18 +151,18 @@ const Implementation: React.FC = () => {
                 <div className="container">
                     <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', alignItems: 'start' }}>
                         <div>
-                            <h2 style={{ fontSize: '2.4rem', fontWeight: 800, marginBottom: '1.5rem', letterSpacing: '-0.02em' }}>A Typical Week With AutoDrive</h2>
+                            <h2 style={{ fontSize: '2.4rem', fontWeight: 800, marginBottom: '1.5rem', letterSpacing: '-0.02em' }}>AutoDriveCX in Daily Operation</h2>
                             <p style={{ fontSize: '1.1rem', color: '#666', lineHeight: 1.6, marginBottom: '3rem' }}>
-                                No extra meetings. No travel days.<br />
-                                <span style={{ fontWeight: 700, color: '#000' }}>Just embedded reinforcement.</span>
+                                No offsite training. No shutdown days.<br />
+                                <span style={{ fontWeight: 700, color: '#000' }}>Just reinforcement embedded in daily dealership operations.</span>
                             </p>
                         </div>
 
                         <div className="mobile-stack" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', width: '100%' }}>
                             {[
-                                { day: "Monday", time: "5 MIN", task: "Execution rep aligned to today's workflow.", icon: <Zap size={20} /> },
-                                { day: "Wednesday", time: "DATA", task: "Manager sees workflow handoff gap between departments.", icon: <TrendingUp size={20} /> },
-                                { day: "Friday", time: "10 MIN", task: "Reinforcement meeting using auto-generated guide.", icon: <Users size={20} /> }
+                                { day: "Daily Execution", time: "5 MIN", task: "Execution reps aligned to the day's workflow reinforce operational standards across departments.", icon: <Zap size={20} /> },
+                                { day: "Continuous Visibility", time: "DATA", task: "Managers see emerging workflow gaps across sales, service, and support operations before performance begins to drift.", icon: <TrendingUp size={20} /> },
+                                { day: "Reinforcement Loop", time: "10 MIN", task: "Managers use an auto-generated coaching guide to reinforce standards and recalibrate the team.", icon: <Users size={20} /> }
                             ].map((item, i) => (
                                 <motion.div
                                     key={item.day}
@@ -206,7 +207,7 @@ const Implementation: React.FC = () => {
                             },
                             {
                                 role: "For Managers",
-                                items: ["Coaching prompts", "Meeting guides", "Skill gap visibility"]
+                                items: ["Coaching prompts", "Meeting guides", "Performance gap visibility"]
                             },
                             {
                                 role: "For Frontline Teams",
@@ -281,7 +282,7 @@ const Implementation: React.FC = () => {
                         <p style={{ fontSize: '1.2rem', color: '#666', lineHeight: 1.6, marginBottom: '4rem' }}>
                             Initiatives fail when measurement fades.<br />
                             Measurement fades when accountability is manual.<br />
-                            AutoDrive automates reinforcement.
+                            AutoDriveCX automates reinforcement.
                         </p>
 
                         <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1rem', marginBottom: '4rem' }}>
@@ -299,7 +300,7 @@ const Implementation: React.FC = () => {
                         </div>
 
                         <p style={{ fontSize: '1.6rem', fontWeight: 800, lineHeight: 1.4, letterSpacing: '-0.02em', color: '#000' }}>
-                            Consistency is what happens when behavior is measured daily and coached weekly.
+                            Consistency emerges when behavior is measured daily and reinforced weekly.
                         </p>
                     </div>
                 </div>
@@ -315,7 +316,7 @@ const Implementation: React.FC = () => {
                     <div className="mobile-stack" style={{ display: 'flex', gap: '2rem', alignItems: 'stretch', justifyContent: 'center' }}>
                         {[
                             { day: "Day 1", title: "Activation", desc: "Dashboard live. First execution rep assigned." },
-                            { day: "Day 30", title: "Pattern Visibility", desc: "Skill trends measurable across departments. Coaching calibrated." },
+                            { day: "Day 30", title: "Pattern Visibility", desc: "Behavior trends measurable across departments. Coaching calibrated." },
                             { day: "Day 90", title: "Culture Stabilized", desc: "Cross-department behavior aligned. CX predictable." }
                         ].map((step) => (
                             <div key={step.day} style={{

@@ -51,10 +51,10 @@ const Home: React.FC = () => {
                             </h1>
                             <div style={{ marginTop: '1rem' }}>
                                 <span style={{ fontWeight: 500, opacity: 0.95, fontSize: 'clamp(1.05rem, 2.1vw, 1.5rem)', color: '#d7e2eb', maxWidth: '900px', display: 'block' }}>
-                                    AutoDrive is the manager-led execution system that keeps dealership performance consistent when pressure hits.
+                                    AutoDriveCX behavioral operating system keeps dealership performance consistent when pressure hits. Managers lead execution.
                                 </span>
                                 <span style={{ fontWeight: 500, opacity: 0.7, fontSize: '0.95rem', color: '#c4ccd6', maxWidth: '900px', display: 'block', marginTop: '0.7rem' }}>
-                                    Across sales, service, BDC, and fixed operations.
+                                    Across sales, service, BDC, and support teams.
                                 </span>
                             </div>
                         </div>
@@ -62,7 +62,7 @@ const Home: React.FC = () => {
                         <div className="mobile-stack" style={{ marginBottom: '4rem', maxWidth: '1100px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem' }}>
                             <div style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.16)', borderRadius: '8px', padding: '1.25rem 1.2rem' }}>
                                 <p style={{ fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.11em', fontWeight: 800, color: 'var(--logo-green)', marginBottom: '0.55rem' }}>Consultants</p>
-                                <p style={{ fontSize: '1rem', color: '#f4f7fa', lineHeight: 1.5 }}>Daily behavior reps that eliminate drift and reinforce process.</p>
+                                <p style={{ fontSize: '1rem', color: '#f4f7fa', lineHeight: 1.5 }}>Daily Execution Reps that eliminate Drift and Reinforce process.</p>
                             </div>
                             <div style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.16)', borderRadius: '8px', padding: '1.25rem 1.2rem' }}>
                                 <p style={{ fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.11em', fontWeight: 800, color: 'var(--logo-blue)', marginBottom: '0.55rem' }}>Managers</p>
@@ -75,9 +75,9 @@ const Home: React.FC = () => {
                         </div>
 
                         <div style={{ display: 'flex', gap: 'clamp(1rem, 3vw, 2rem)', flexWrap: 'wrap', alignItems: 'center' }}>
-                            <a href="#beta" className="btn btn-primary" style={{ padding: 'clamp(1rem, 3vw, 1.4rem) clamp(2rem, 5vw, 2.8rem)', fontSize: 'clamp(0.8rem, 2vw, 1rem)' }}>Book Performance Strategy Call</a>
-                            <Link to="/implementation" className="btn btn-ghost" style={{ padding: 'clamp(1rem, 3vw, 1.4rem) clamp(2rem, 5vw, 2.8rem)', textDecoration: 'none', fontSize: 'clamp(0.8rem, 2vw, 1rem)' }}>
-                                View 90-Day Rollout Plan
+                            <a href="#beta" className="btn btn-primary" style={{ padding: 'clamp(1rem, 3vw, 1.4rem) clamp(2rem, 5vw, 2.8rem)', fontSize: 'clamp(0.8rem, 2vw, 1rem)' }}>Schedule Implementation Call</a>
+                            <Link to="/sample-rollout-plan" className="btn btn-ghost" style={{ padding: 'clamp(1rem, 3vw, 1.4rem) clamp(2rem, 5vw, 2.8rem)', textDecoration: 'none', fontSize: 'clamp(0.8rem, 2vw, 1rem)' }}>
+                                View Sample Rollout Plan
                             </Link>
                         </div>
                         <p style={{ marginTop: '1.5rem', color: 'var(--text-secondary-dark)', fontSize: '0.9rem', fontWeight: 500, opacity: 0.6 }}>
@@ -134,7 +134,7 @@ const Home: React.FC = () => {
                                 boxShadow: activeDriftMode === 'autodrive' ? '0 10px 20px rgba(102, 184, 72, 0.2)' : 'none'
                             }}
                         >
-                            The AutoDrive Path
+                            The AutoDriveCX Path
                         </button>
                     </div>
 
@@ -185,7 +185,7 @@ const Home: React.FC = () => {
                                             <span style={{ color: 'var(--logo-green)' }}>Consistency.</span>
                                         </h2>
                                         <p style={{ color: 'var(--text-secondary-light)', fontSize: '1.1rem', lineHeight: 1.6, marginBottom: '1.8rem', maxWidth: '620px' }}>
-                                            AutoDrive gives managers a daily operating system for behavior control on the floor.
+                                            AutoDriveCX gives managers a daily operating system for behavior control on the floor.
                                             It prevents drift early, keeps coaching visible, and turns execution into a measurable discipline.
                                         </p>
                                         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', borderLeft: '3px solid var(--logo-green)', paddingLeft: '2rem' }}>
@@ -361,7 +361,7 @@ const Home: React.FC = () => {
                             <div style={{ borderLeft: '2px solid var(--logo-green)', paddingLeft: '2rem', marginBottom: '3rem' }}>
                                 <h3 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '1rem', color: '#fff', letterSpacing: '-0.01em' }}>Infrastructure of Alignment</h3>
                                 <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.22rem', fontWeight: 700, lineHeight: 1.35, marginBottom: '0.75rem', maxWidth: '620px' }}>
-                                    AutoDrive runs a daily behavioral control loop.
+                                    AutoDriveCX runs a daily behavioral control loop.
                                 </p>
                                 <p style={{ color: 'rgba(255,255,255,0.64)', fontSize: '0.98rem', lineHeight: 1.6, maxWidth: '620px' }}>
                                     Execution is logged. Drift is detected early. Coaching is triggered before performance degrades.
@@ -428,7 +428,7 @@ const Home: React.FC = () => {
             <section className="dark-section" style={{ padding: '6rem 5%', background: '#0a0b0d', borderTop: '1px solid rgba(255,255,255,0.03)' }}>
                 <div className="container">
                     <h3 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.4rem)', fontWeight: 800, color: '#fff', lineHeight: 1.15, marginBottom: '2rem' }}>
-                        Most dealerships train in bursts.<br />AutoDrive reinforces daily.
+                        Most dealerships train in bursts.<br />AutoDriveCX reinforces daily.
                     </h3>
                     <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2.5rem', border: '1px solid rgba(255,255,255,0.08)', padding: '2rem' }}>
                         <div style={{ paddingRight: '1.5rem', borderRight: '1px solid rgba(255,255,255,0.1)' }}>
@@ -450,11 +450,11 @@ const Home: React.FC = () => {
                         </div>
                         <div style={{ paddingLeft: '1.5rem' }}>
                             <p style={{ fontSize: '0.76rem', fontWeight: 900, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)', marginBottom: '1rem' }}>
-                                AutoDrive Reinforcement Model
+                                AutoDriveCX Reinforcement Model
                             </p>
                             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                                 {[
-                                    'Daily micro-reinforcement',
+                                    'Daily Execution Reps',
                                     'Behavior logged and measured',
                                     'Drift detection',
                                     'Manager intervention loop'
@@ -472,6 +472,35 @@ const Home: React.FC = () => {
                 </div>
             </section>
 
+            <section className="light-section" style={{ background: '#fff', padding: 'var(--spacing-huge) 5%', borderTop: '1px solid rgba(0,0,0,0.05)' }}>
+                <div className="container" style={{ maxWidth: '920px' }}>
+                    <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 800, marginBottom: '2rem', letterSpacing: '-0.02em' }}>
+                        Where This System Came From
+                    </h2>
+                    <p style={{ fontSize: '1.08rem', color: '#4b5563', lineHeight: 1.7, marginBottom: '1rem' }}>
+                        Dealerships do not struggle because teams lack knowledge.
+                    </p>
+                    <p style={{ fontSize: '1.08rem', color: '#4b5563', lineHeight: 1.7, marginBottom: '1rem' }}>
+                        They struggle because execution drifts under daily pressure.
+                    </p>
+                    <p style={{ fontSize: '1.08rem', color: '#4b5563', lineHeight: 1.7, marginBottom: '1rem' }}>
+                        AutoDriveCX was designed from years inside dealership floors where managers were forced to choose between fighting fires and reinforcing standards.
+                    </p>
+                    <p style={{ fontSize: '1.08rem', color: '#4b5563', lineHeight: 1.7, marginBottom: '1rem' }}>
+                        Training events temporarily improve performance.
+                    </p>
+                    <p style={{ fontSize: '1.08rem', color: '#4b5563', lineHeight: 1.7, marginBottom: '1rem' }}>
+                        But without daily reinforcement, execution slips back to habit.
+                    </p>
+                    <p style={{ fontSize: '1.08rem', color: '#4b5563', lineHeight: 1.7, marginBottom: '1rem' }}>
+                        AutoDriveCX installs the reinforcement layer that most dealerships are missing.
+                    </p>
+                    <p style={{ fontSize: '0.96rem', color: '#6b7280', lineHeight: 1.65, marginTop: '1.4rem' }}>
+                        Built from thousands of real customer interactions across dealership sales floors and service lanes.
+                    </p>
+                </div>
+            </section>
+
             <section className="light-section" style={{ borderTop: '1px solid rgba(0,0,0,0.05)', background: '#fff' }}>
                 <div className="container">
                     <p style={{ fontSize: '0.78rem', fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(18,17,17,0.62)', marginBottom: '1.5rem' }}>
@@ -481,8 +510,8 @@ const Home: React.FC = () => {
                         {/* Cards */}
                         {[
                             { role: 'Consultant / Advisor', items: ['AI-guided execution reinforcement', 'Real-time behavioral correction', 'Structured performance progression'], cta: 'Join Private Beta', link: '#beta', primary: true },
-                            { role: 'Manager', items: ['Automated accountability engine', 'Coaching coverage control', 'Drift intervention controls'], cta: 'Explore Dealership Implementation', link: '/implementation', primary: false },
-                            { role: 'Dealer Principal', items: ['Executive performance command view', 'Gross risk visibility', 'Enterprise-wide execution standardization'], cta: 'Request Executive Brief', link: '/implementation', primary: false }
+                            { role: 'Manager', items: ['Automated accountability engine', 'Coaching coverage control', 'Drift intervention controls'], cta: 'View Sample Rollout Plan', link: '/sample-rollout-plan', primary: false },
+                            { role: 'Dealer Principal', items: ['Executive performance command view', 'Gross risk visibility', 'Enterprise-wide execution standardization'], cta: 'Schedule Implementation Call', link: '/implementation', primary: false }
                         ].map(card => (
                             <div key={card.role} style={{ padding: 'clamp(1.5rem, 5vw, 2.6rem)', borderLeft: '1px solid rgba(0,0,0,0.1)' }}>
                                 <h3 style={{ fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '1.7rem', fontWeight: 800, opacity: 0.75 }}>{card.role}</h3>
@@ -510,7 +539,7 @@ const Home: React.FC = () => {
                         It degrades without control.
                     </h2>
                     <h3 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, opacity: 0.96, marginBottom: '2.2rem', color: '#fff', lineHeight: 1.05 }}>
-                        AutoDrive installs control.
+                        AutoDriveCX installs control.
                     </h3>
                     <p style={{ color: 'rgba(255,255,255,0.58)', fontSize: '1.05rem', marginBottom: '4rem', lineHeight: 1.75 }}>
                         Installed in daily reps.<br />
@@ -519,7 +548,7 @@ const Home: React.FC = () => {
                     </p>
                     <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
                         <a href="#beta" className="btn btn-primary">Join Private Beta</a>
-                        <Link to="/implementation" className="btn btn-ghost" style={{ textDecoration: 'none' }}>View 90-Day Rollout</Link>
+                        <Link to="/sample-rollout-plan" className="btn btn-ghost" style={{ textDecoration: 'none' }}>View Sample Rollout Plan</Link>
                     </div>
                 </div>
             </section>

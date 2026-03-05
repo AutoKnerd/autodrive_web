@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import Implementation from './pages/Implementation';
+import SampleRolloutPlan from './pages/SampleRolloutPlan';
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -22,6 +23,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/implementation" element={<Implementation />} />
+          <Route path="/sample-rollout-plan" element={<SampleRolloutPlan />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </div>
