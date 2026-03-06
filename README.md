@@ -16,6 +16,17 @@ npm run build
 npm run preview
 ```
 
+## Stripe trial checkout
+
+The `/start-trial` button calls `/api/create-checkout-session`, which creates a Stripe Checkout Session for a monthly subscription with a 30-day trial.
+
+Required environment variables (Vercel Project Settings -> Environment Variables):
+- `STRIPE_SECRET_KEY` = your Stripe secret key
+- `STRIPE_PRICE_ID` = Stripe price ID (defaults in code to `price_1SsMKIIqxH0CMe02hpGHxYq0`)
+
+Optional:
+- `PUBLIC_SITE_URL` = canonical site URL used when request headers are unavailable
+
 ## Vercel auto-deploy troubleshooting
 
 If Vercel is not deploying when you push to GitHub, use this exact sequence.
