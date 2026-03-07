@@ -18,7 +18,7 @@ npm run preview
 
 ## Stripe trial checkout
 
-The `/start-trial` button calls `/api/create-checkout-session`, which creates a Stripe Checkout Session for a monthly subscription with a 30-day trial.
+The `/start-trial` button redirects to `/api/create-checkout-session`, which creates a hosted Stripe Checkout Session for a monthly subscription with a 30-day trial.
 
 Required environment variables (Vercel Project Settings -> Environment Variables):
 - `STRIPE_SECRET_KEY` = your Stripe secret key

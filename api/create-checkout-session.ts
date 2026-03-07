@@ -40,9 +40,15 @@ export default async function handler(
 
         const session = await stripe.checkout.sessions.create({
             mode: 'subscription',
+            payment_method_types: ['card'],
             line_items: [{ price: stripePriceId, quantity: 1 }],
             subscription_data: {
                 trial_period_days: 30
+            },
+            custom_text: {
+                submit: {
+                    message: '30-day free trial. Cancel anytime before billing begins.'
+                }
             },
             success_url: `${baseUrl}/trial-success`,
             cancel_url: `${baseUrl}/start-trial`

@@ -280,7 +280,7 @@ const IndividualTrial: React.FC = () => {
                                 30-Day Free Trial
                             </p>
                             <p style={{ fontWeight: 500, color: 'rgba(255,255,255,0.6)', fontSize: '1.1rem', marginTop: '0.7rem' }}>
-                                Then $29/month • Cancel anytime.
+                                Then $50/month • Cancel anytime.
                             </p>
                         </div>
 
