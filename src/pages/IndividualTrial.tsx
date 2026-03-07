@@ -28,10 +28,33 @@ const IndividualTrial: React.FC = () => {
         <div>
             <Navigation />
 
-            <section className="dark-section home-hero" style={{ minHeight: '100vh', paddingTop: '160px', paddingBottom: '100px', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden' }}>
-                <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'radial-gradient(circle at 80% 20%, rgba(52, 136, 186, 0.1) 0%, transparent 60%)', zIndex: 1 }}></div>
-                <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-                    <p style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--logo-blue)', fontWeight: 800, marginBottom: '2.5rem' }}>
+            <section className="dark-section" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', background: '#0a0b0d' }}>
+                {/* Visual Background - Architectural Dealership */}
+                <div style={{
+                    position: 'absolute', top: 0, right: 0, width: '100%', height: '100%',
+                    backgroundImage: 'url("/hero-visual-dealership.png")', backgroundSize: 'cover', backgroundPosition: 'center',
+                    maskImage: 'linear-gradient(to right, rgba(0,0,0,1) 30%, rgba(0,0,0,0.1) 100%)',
+                    WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,1) 30%, rgba(0,0,0,0.1) 100%)',
+                    opacity: 0.5,
+                    zIndex: 1,
+                    filter: 'grayscale(0.2) brightness(0.7)'
+                }}></div>
+
+                {/* Subtle Structural Grid Overlay */}
+                <div style={{
+                    position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
+                    backgroundImage: `
+                        linear-gradient(rgba(102, 184, 72, 0.05) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(102, 184, 72, 0.05) 1px, transparent 1px)
+                    `,
+                    backgroundSize: '40px 40px',
+                    maskImage: 'radial-gradient(circle at 70% 50%, black, transparent 70%)',
+                    WebkitMaskImage: 'radial-gradient(circle at 70% 50%, black, transparent 70%)',
+                    zIndex: 2
+                }}></div>
+
+                <div className="container" style={{ position: 'relative', zIndex: 10 }}>
+                    <p style={{ fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--logo-blue)', fontWeight: 800, marginBottom: '2.5rem' }}>
                         Individual Trial
                     </p>
                     <h1 style={{ fontSize: 'clamp(2.5rem, 8vw, 5.2rem)', lineHeight: 0.98, color: '#fff', maxWidth: '920px', marginBottom: '2rem', fontWeight: 800, letterSpacing: '-0.03em' }}>
@@ -199,8 +222,20 @@ const IndividualTrial: React.FC = () => {
                 </div>
             </section>
 
-            <section id="trial-enrollment" ref={enrollmentRef} className="dark-section" style={{ padding: 'var(--spacing-huge) 5%', marginTop: '1.2rem', background: '#0A0B0D', position: 'relative', overflow: 'hidden' }}>
-                <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'radial-gradient(circle at 50% 50%, rgba(102, 184, 72, 0.05) 0%, transparent 70%)', zIndex: 1 }}></div>
+            <section id="trial-enrollment" ref={enrollmentRef} className="dark-section" style={{ padding: 'var(--spacing-huge) 5%', marginTop: '0', background: '#0a0b0d', position: 'relative', overflow: 'hidden' }}>
+                {/* Structural Grid Overlay */}
+                <div style={{
+                    position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
+                    backgroundImage: `
+                        linear-gradient(rgba(102, 184, 72, 0.03) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(102, 184, 72, 0.03) 1px, transparent 1px)
+                    `,
+                    backgroundSize: '40px 40px',
+                    maskImage: 'radial-gradient(circle at 50% 50%, black, transparent 80%)',
+                    WebkitMaskImage: 'radial-gradient(circle at 50% 50%, black, transparent 80%)',
+                    zIndex: 1
+                }}></div>
+                <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'radial-gradient(circle at 50% 50%, rgba(102, 184, 72, 0.05) 0%, transparent 70%)', zIndex: 2 }}></div>
                 <div className="container" style={{ maxWidth: '820px', position: 'relative', zIndex: 10 }}>
                     <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
                         <h2 style={{ color: '#fff', marginBottom: '1rem', fontSize: 'clamp(2.5rem, 6vw, 4.2rem)', fontWeight: 800, letterSpacing: '-0.03em' }}>

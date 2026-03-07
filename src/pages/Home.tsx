@@ -99,14 +99,13 @@ const Home: React.FC = () => {
                                 DEALERSHIP CX OPERATING SYSTEM
                             </p>
                             <h1 style={{ fontSize: 'clamp(2.4rem, 7vw, 5.2rem)', lineHeight: 1.02, marginBottom: '1rem', fontWeight: 800, color: '#fff', letterSpacing: '-0.03em', maxWidth: '920px' }}>
-                                Protect CSI. Protect Gross. Stabilize Culture.
+                                Protect CSI. Protect Gross.
+                                <br />
+                                Stabilize Dealership Execution.
                             </h1>
                             <div style={{ marginTop: '1rem' }}>
                                 <span style={{ fontWeight: 500, opacity: 0.92, fontSize: 'clamp(1.02rem, 2vw, 1.35rem)', color: '#d7e2eb', maxWidth: '900px', display: 'block', marginBottom: '0.65rem' }}>
-                                    AutoDriveCX is the behavioral operating system for dealership execution.
-                                </span>
-                                <span style={{ fontWeight: 500, opacity: 0.95, fontSize: 'clamp(1.05rem, 2.1vw, 1.5rem)', color: '#d7e2eb', maxWidth: '900px', display: 'block' }}>
-                                    Managers use it to prevent execution drift when pressure hits.
+                                    AutoDriveCX is the operating system that keeps dealership execution from drifting when pressure hits.
                                 </span>
                                 <span style={{ fontWeight: 500, opacity: 0.7, fontSize: '0.95rem', color: '#c4ccd6', maxWidth: '900px', display: 'block', marginTop: '0.7rem' }}>
                                     Across sales, service, BDC, and support teams.
@@ -709,7 +708,7 @@ const Home: React.FC = () => {
                         Protected at the executive level.
                     </p>
                     <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                        <a href="#beta" className="btn btn-primary">Join Private Beta</a>
+                        <a href="https://calendar.app.google/QWRXFH9k24iZnBZWA" target="_blank" rel="noopener" className="btn btn-primary">Schedule Implementation Call</a>
                         <Link to="/sample-rollout-plan" className="btn btn-ghost" style={{ textDecoration: 'none' }}>View Sample Rollout Plan</Link>
                     </div>
                 </div>
