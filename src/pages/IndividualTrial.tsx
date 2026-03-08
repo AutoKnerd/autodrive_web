@@ -38,7 +38,7 @@ const IndividualTrial: React.FC = () => {
                 }}></div>
 
                 <div className="container" style={{ position: 'relative', zIndex: 10 }}>
-                    <p style={{ fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--logo-blue)', fontWeight: 800, marginBottom: '2.5rem' }}>
+                    <p style={{ fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--logo-green)', fontWeight: 800, marginBottom: '2.5rem' }}>
                         Individual Trial
                     </p>
                     <h1 style={{ fontSize: 'clamp(2.5rem, 8vw, 5.2rem)', lineHeight: 0.98, color: '#fff', maxWidth: '920px', marginBottom: '2rem', fontWeight: 800, letterSpacing: '-0.03em' }}>

@@ -49,6 +49,18 @@ const SampleRolloutPlan: React.FC = () => {
 
                 <div className="container hero-content" style={{ position: 'relative', zIndex: 10 }}>
                     <div style={{ maxWidth: '920px' }}>
+                        <p
+                            style={{
+                                fontSize: '0.78rem',
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.2em',
+                                color: 'var(--logo-green)',
+                                fontWeight: 800,
+                                marginBottom: '2rem'
+                            }}
+                        >
+                            Dealership Implementation
+                        </p>
                         <h1
                             style={{
                                 fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
