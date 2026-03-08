@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 
 const TrialSuccess: React.FC = () => {
-    const appUrl = (import.meta.env.VITE_AUTODRIVE_APP_URL as string | undefined) ?? '#';
+    const appUrl = (import.meta.env.VITE_AUTODRIVE_APP_URL as string | undefined) ?? 'https://app.autodrivecx.com/login';
 
     return (
         <div className="dark-section" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
