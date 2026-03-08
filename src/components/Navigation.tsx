@@ -16,7 +16,9 @@ const Navigation: React.FC = () => {
             </div>
             <div className="nav-action-group" style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
                 <motion.a
-                    href="#login"
+                    href="https://app.autodrivecx.com/login"
+                    target="_blank"
+                    rel="noopener"
                     className="btn nav-action-btn"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
