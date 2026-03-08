@@ -6,7 +6,6 @@ import Footer from '../components/Footer';
 const IndividualTrial: React.FC = () => {
     const { pathname, hash } = useLocation();
     const enrollmentRef = useRef<HTMLElement | null>(null);
-    const startTrialAnchor = '/start-trial#trial-enrollment';
 
     useEffect(() => {
         if ((pathname === '/start-trial' && hash === '#trial-enrollment') && enrollmentRef.current) {
@@ -61,9 +60,9 @@ const IndividualTrial: React.FC = () => {
                         Designed for consultants, advisors, and BDC professionals who want sharper execution under pressure.
                     </p>
                     <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
-                        <Link to={startTrialAnchor} className="btn btn-primary" style={{ padding: '1.2rem 3.2rem', fontSize: '1rem', boxShadow: '0 20px 40px rgba(102, 184, 72, 0.25)' }}>
+                        <a href="https://app.autodrivecx.com/signup" className="btn btn-primary" style={{ padding: '1.2rem 3.2rem', fontSize: '1rem', boxShadow: '0 20px 40px rgba(102, 184, 72, 0.25)' }}>
                             Start Your 30-Day Trial
-                        </Link>
+                        </a>
                         <Link to="/sample-rollout-plan" className="btn btn-ghost" style={{ padding: '1.2rem 2.8rem', textDecoration: 'none', fontSize: '1rem' }}>
                             Explore Dealership Implementation
                         </Link>
@@ -117,9 +116,9 @@ const IndividualTrial: React.FC = () => {
                         </article>
                     </div>
                     <div style={{ marginTop: '4rem', textAlign: 'center' }}>
-                        <Link to={startTrialAnchor} className="btn btn-primary" style={{ padding: '1.2rem 3rem' }}>
+                        <a href="https://app.autodrivecx.com/signup" className="btn btn-primary" style={{ padding: '1.2rem 3rem' }}>
                             Start Your 30-Day Trial
-                        </Link>
+                        </a>
                     </div>
                 </div>
             </section>
