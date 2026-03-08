@@ -19,7 +19,7 @@ const Navigation: React.FC = () => {
                     href="https://app.autodrivecx.com/login"
                     target="_blank"
                     rel="noopener"
-                    className="btn nav-action-btn"
+                    className="btn nav-action-btn nav-login-btn"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     style={{
@@ -40,7 +40,7 @@ const Navigation: React.FC = () => {
                 </motion.a>
                 <motion.a
                     href="/individual-trial"
-                    className="btn btn-primary nav-action-btn"
+                    className="btn btn-primary nav-action-btn nav-trial-btn"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     style={{

@@ -334,6 +334,15 @@ section {
     white-space: nowrap;
   }
 
+  .nav-trial-btn {
+    display: none !important;
+  }
+
+  .nav-login-btn {
+    min-width: clamp(8.5rem, 40vw, 11rem);
+    padding: 0 1.25rem !important;
+  }
+
   section {
     padding: var(--spacing-large) 5%;
   }
