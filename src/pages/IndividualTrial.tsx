@@ -1,18 +1,9 @@
-import React, { useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 
 const IndividualTrial: React.FC = () => {
-    const { pathname, hash } = useLocation();
-    const enrollmentRef = useRef<HTMLElement | null>(null);
-
-    useEffect(() => {
-        if ((pathname === '/start-trial' && hash === '#trial-enrollment') && enrollmentRef.current) {
-            enrollmentRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    }, [pathname, hash]);
-
     const handleCheckoutStart = () => {
         window.location.assign('https://app.autodrivecx.com/signup');
     };
@@ -51,7 +42,7 @@ const IndividualTrial: React.FC = () => {
                         Individual Trial
                     </p>
                     <h1 style={{ fontSize: 'clamp(2.5rem, 8vw, 5.2rem)', lineHeight: 0.98, color: '#fff', maxWidth: '920px', marginBottom: '2rem', fontWeight: 800, letterSpacing: '-0.03em' }}>
-                        Try AutoDriveCX — Individual Trial
+                        Try AutoDriveCX Individual Trial
                     </h1>
                     <p style={{ color: 'rgba(255,255,255,0.85)', maxWidth: '780px', fontSize: 'clamp(1.1rem, 2.2vw, 1.45rem)', marginBottom: '1.2rem', lineHeight: 1.5, fontWeight: 500 }}>
                         "Sharpen your execution where it matters most: the dealership floor."
@@ -215,7 +206,7 @@ const IndividualTrial: React.FC = () => {
                 </div>
             </section>
 
-            <section id="trial-enrollment" ref={enrollmentRef} className="dark-section" style={{ padding: 'var(--spacing-huge) 5%', marginTop: '0', background: '#0a0b0d', position: 'relative', overflow: 'hidden' }}>
+            <section id="trial-enrollment" className="dark-section" style={{ padding: 'var(--spacing-huge) 5%', marginTop: '0', background: '#0a0b0d', position: 'relative', overflow: 'hidden' }}>
                 {/* Structural Grid Overlay */}
                 <div style={{
                     position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
