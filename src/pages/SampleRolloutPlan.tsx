@@ -97,7 +97,7 @@ const SampleRolloutPlan: React.FC = () => {
 
                         <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
                             <a
-                                href="https://calendar.app.google/QWRXFH9k24iZnBZWA"
+                                href="https://calendar.app.google/2gZsELsJfGXFUYDq5"
                                 target="_blank"
                                 rel="noopener"
                                 className="btn btn-primary"
@@ -198,7 +198,7 @@ const SampleRolloutPlan: React.FC = () => {
                             Schedule a short implementation call to walk through how deployment would look in your store.
                         </p>
                         <a
-                            href="https://calendar.app.google/QWRXFH9k24iZnBZWA"
+                            href="https://calendar.app.google/2gZsELsJfGXFUYDq5"
                             target="_blank"
                             rel="noopener"
                             className="btn btn-primary"
@@ -451,7 +451,7 @@ const SampleRolloutPlan: React.FC = () => {
                     </p>
                     <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
                         <a
-                            href="https://calendar.app.google/QWRXFH9k24iZnBZWA"
+                            href="https://calendar.app.google/2gZsELsJfGXFUYDq5"
                             target="_blank"
                             rel="noopener"
                             className="btn btn-primary"
