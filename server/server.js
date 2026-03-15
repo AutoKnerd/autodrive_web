@@ -7,7 +7,7 @@ import sprocketRoute from './sprocket-route.js';
 dotenv.config();
 
 const app = express();
-const PORT = 3000;
+const PORT = Number(process.env.PORT) || 3000;
 
 // Enable CORS so browser-based frontends can call this API.
 app.use(cors());

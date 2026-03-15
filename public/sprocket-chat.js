@@ -6,7 +6,18 @@
 
   var WIDGET_ID = 'sprocket-chat-widget';
   var STYLE_ID = 'sprocket-chat-style';
-  var API_ENDPOINT = '/api/sprocket-chat';
+  var API_ENDPOINT = (function () {
+    if (typeof window !== 'undefined' && typeof window.SPROCKET_API_ENDPOINT === 'string' && window.SPROCKET_API_ENDPOINT.trim()) {
+      return window.SPROCKET_API_ENDPOINT.trim();
+    }
+
+    var isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    if (isLocalhost) {
+      return 'http://localhost:3001/api/sprocket-chat';
+    }
+
+    return '/api/sprocket-chat';
+  })();
   var AVATAR_URL = '/gear-glasses-v2.png';
 
   function escapeHtml(value) {

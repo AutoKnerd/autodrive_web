@@ -1,4 +1,4 @@
-const GEMINI_ENDPOINT = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
+const GEMINI_ENDPOINT = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent';
 const FALLBACK_REPLY = 'Sprocket had a gear slip. Try again in a moment.';
 
 const SYSTEM_PROMPT = `You are "Sprocket", the AutoDriveCX assistant.
