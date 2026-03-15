@@ -153,17 +153,33 @@
           },
           body: JSON.stringify({ message: message })
         });
-
-        if (!response.ok) {
-          throw new Error('Request failed with status ' + response.status);
+        var data = null;
+        try {
+          data = await response.json();
+        } catch (parseError) {
+          data = null;
         }
 
-        var data = await response.json();
         var reply = data && typeof data.reply === 'string' && data.reply.trim()
           ? data.reply
-          : 'I received your message but did not get a usable reply yet.';
+          : '';
 
-        addMessage(messagesEl, avatarUrl, 'bot', reply);
+        if (!response.ok) {
+          addMessage(
+            messagesEl,
+            avatarUrl,
+            'bot',
+            reply || 'Sprocket had a gear slip. Try again in a moment.'
+          );
+          return;
+        }
+
+        addMessage(
+          messagesEl,
+          avatarUrl,
+          'bot',
+          reply || 'I received your message but did not get a usable reply yet.'
+        );
       } catch (error) {
         addMessage(
           messagesEl,
