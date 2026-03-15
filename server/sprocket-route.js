@@ -1,10 +1,16 @@
 import { Router } from 'express';
 import { SPROCKET_KNOWLEDGE } from './sprocket-knowledge.js';
 import { detectSensitiveQuery } from './sprocket-security.js';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const router = Router();
 
-const GEMINI_ENDPOINT = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent';
+const GEMINI_ENDPOINT = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent';
 const FALLBACK_REPLY = 'Sprocket had a gear slip. Try again in a moment.';
 const SCHEDULING_LINK = 'https://calendar.app.google/2gZsELsJfGXFUYDq5';
 
@@ -221,6 +227,44 @@ Response rules:
   } catch (error) {
     console.error('Sprocket route failed:', error);
     return res.status(500).json({ reply: FALLBACK_REPLY });
+  }
+});
+
+/**
+ * POST /api/inquiry
+ * Capture and store dealership inquiries.
+ */
+router.post('/inquiry', async (req, res) => {
+  const { email, message, timestamp } = req.body;
+
+  if (!email || !message) {
+    return res.status(400).json({ error: 'Email and message are required.' });
+  }
+
+  const inquiry = {
+    email,
+    message,
+    timestamp: timestamp || new Date().toISOString(),
+    id: Date.now().toString()
+  };
+
+  const filePath = path.join(__dirname, 'inquiries.json');
+
+  try {
+    let inquiries = [];
+    if (fs.existsSync(filePath)) {
+      const data = fs.readFileSync(filePath, 'utf8');
+      inquiries = JSON.parse(data || '[]');
+    }
+
+    inquiries.push(inquiry);
+    fs.writeFileSync(filePath, JSON.stringify(inquiries, null, 2));
+
+    console.log(`[Inquiry] Captured from ${email}`);
+    return res.status(200).json({ success: true });
+  } catch (error) {
+    console.error('Failed to save inquiry:', error);
+    return res.status(500).json({ error: 'Failed to capture inquiry.' });
   }
 });
 

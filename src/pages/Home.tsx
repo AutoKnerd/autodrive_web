@@ -1,41 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight, AlertTriangle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+import FloatingCTA from '../components/FloatingCTA';
 
 const Home: React.FC = () => {
     const [activeDriftMode, setActiveDriftMode] = useState<'typical' | 'autodrive'>('typical');
-    const [showFloatingCta, setShowFloatingCta] = useState(false);
-    const [footerLift, setFooterLift] = useState(0);
-    const [isMobile, setIsMobile] = useState(false);
 
-    useEffect(() => {
-        const onScroll = () => {
-            const doc = document.documentElement;
-            const maxScrollable = doc.scrollHeight - window.innerHeight;
-            const progress = maxScrollable > 0 ? window.scrollY / maxScrollable : 0;
-            setShowFloatingCta(progress >= 0.3);
-
-            const pixelsFromBottom = doc.scrollHeight - (window.scrollY + window.innerHeight);
-            setFooterLift(Math.max(0, 140 - pixelsFromBottom));
-        };
-
-        const onResize = () => {
-            setIsMobile(window.innerWidth <= 768);
-            onScroll();
-        };
-
-        onResize();
-        window.addEventListener('scroll', onScroll, { passive: true });
-        window.addEventListener('resize', onResize);
-
-        return () => {
-            window.removeEventListener('scroll', onScroll);
-            window.removeEventListener('resize', onResize);
-        };
-    }, []);
 
     const snapshotMetrics = activeDriftMode === 'typical'
         ? [
@@ -714,35 +687,7 @@ const Home: React.FC = () => {
                 </div>
             </section>
 
-            <a
-                href="https://calendar.app.google/2gZsELsJfGXFUYDq5"
-                target="_blank"
-                rel="noopener"
-                aria-label="Schedule Implementation Call"
-                style={{
-                    position: 'fixed',
-                    right: isMobile ? '18px' : '24px',
-                    bottom: `${(isMobile ? 18 : 24) + footerLift}px`,
-                    padding: isMobile ? '12px 16px' : '14px 18px',
-                    borderRadius: '8px',
-                    background: 'var(--logo-green)',
-                    color: '#fff',
-                    zIndex: 1000,
-                    boxShadow: '0 10px 24px rgba(0, 0, 0, 0.22)',
-                    textDecoration: 'none',
-                    fontWeight: 700,
-                    fontSize: '0.86rem',
-                    letterSpacing: '0.04em',
-                    textTransform: 'uppercase',
-                    opacity: showFloatingCta ? 1 : 0,
-                    transform: showFloatingCta ? 'translateY(0)' : 'translateY(10px)',
-                    pointerEvents: showFloatingCta ? 'auto' : 'none',
-                    transition: 'opacity 220ms ease, transform 220ms ease, bottom 220ms ease'
-                }}
-            >
-                Schedule Implementation Call
-            </a>
-
+            <FloatingCTA />
             <Footer />
         </div>
     );

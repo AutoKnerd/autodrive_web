@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+import FloatingCTA from '../components/FloatingCTA';
 
 const IndividualTrial: React.FC = () => {
     const handleCheckoutStart = () => {
@@ -302,6 +303,7 @@ const IndividualTrial: React.FC = () => {
                 </div>
             </section>
 
+            <FloatingCTA />
             <Footer />
         </div>
     );
