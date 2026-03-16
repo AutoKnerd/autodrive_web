@@ -76,6 +76,7 @@ export function getSession(sessionId) {
       latestIntent: null,
       ctaLastShown: null,
       conversationStartedLogged: false,
+      awaitingName: false,
       ctaShown: {
         schedule: false,
         trial: false,

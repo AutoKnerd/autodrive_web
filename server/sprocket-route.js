@@ -647,10 +647,54 @@ router.post('/sprocket-chat', async (req, res) => {
   const foundRoleOrDealership = extractRoleOrDealership(userMessage);
   const parsedRoleCompany = extractRoleAndCompany(userMessage);
 
+  // If we already have an email and are waiting on a name, capture it and finalize lead state.
+  if (!foundEmail && session.awaitingName && foundName) {
+    session.awaitingName = false;
+    session.leadCaptured = true;
+    session.lead = {
+      ...(session.lead || {}),
+      name: foundName
+    };
+
+    const reply = `Perfect, thanks ${foundName}. I have what I need for follow-up. If you'd like the fastest path, you can also book an implementation call now.`;
+    const ctas = [{ type: 'schedule', label: 'Schedule Implementation Call', url: SCHEDULE_LINK }];
+    session.ctaShown.schedule = true;
+    session.ctaLastShown = 'schedule_call';
+
+    session.messages.push({ role: 'bot', text: reply, ts: nowIso() });
+    session.summary = buildConversationSummary(session);
+    saveSession(session);
+
+    try {
+      await persistSessionToFirestore(session);
+      await upsertSprocketLead(normalizedSessionId, {
+        session_id: normalizedSessionId,
+        created_at: session.createdAt,
+        updated_at: nowIso(),
+        name: session.lead?.name || null,
+        email: session.lead?.email || null,
+        company_or_dealership: session.lead?.companyOrDealership || null,
+        role: session.lead?.role || null,
+        inferred_lead_type: session.userType || 'unknown',
+        inferred_interest: intent,
+        lead_score: session.leadScore || 0,
+        source: 'sprocket_web',
+        transcript_summary: session.summary || '',
+        last_user_message: userMessage,
+        recommended_followup: getRecommendedFollowup(session, intent)
+      });
+    } catch (error) {
+      console.error('Failed to finalize lead after name capture:', error.message);
+    }
+
+    return res.json({ reply, sessionId: normalizedSessionId, ctas });
+  }
+
   if (foundEmail) {
     session.emailCaptured = true;
-    session.leadCaptured = true;
     session.leadScore = (session.leadScore || 0) + 20;
+    session.awaitingName = !foundName && !session.lead?.name;
+    session.leadCaptured = !session.awaitingName;
     session.lead = {
       ...(session.lead || {}),
       email: foundEmail,
@@ -678,10 +722,19 @@ router.post('/sprocket-chat', async (req, res) => {
       acceptedNextStep: null
     });
 
-    const reply = 'Perfect, thanks. I\'ve got your email and the team can follow up. If you want the fastest path, you can also book directly here.';
-    const ctas = [{ type: 'schedule', label: 'Schedule Implementation Call', url: SCHEDULE_LINK }];
-    session.ctaShown.schedule = true;
-    session.ctaLastShown = 'schedule_call';
+    const reply = session.awaitingName
+      ? 'Thanks, I got your email. What name should I put on this follow-up?'
+      : 'Perfect, thanks. I\'ve got your details and the team can follow up. If you want the fastest path, you can also book directly here.';
+    const ctas = session.awaitingName
+      ? [{ type: 'email', label: 'Share Name', action: 'capture_email' }]
+      : [{ type: 'schedule', label: 'Schedule Implementation Call', url: SCHEDULE_LINK }];
+    if (!session.awaitingName) {
+      session.ctaShown.schedule = true;
+      session.ctaLastShown = 'schedule_call';
+    } else {
+      session.ctaShown.email = true;
+      session.ctaLastShown = 'email_followup';
+    }
 
     session.messages.push({ role: 'bot', text: reply, ts: nowIso() });
     session.summary = buildConversationSummary(session);
@@ -720,9 +773,15 @@ router.post('/sprocket-chat', async (req, res) => {
         sensitiveProbe: false
       });
 
-      await logEventEverywhere(normalizedSessionId, 'schedule_call_cta_shown', {
-        source: 'email_capture_flow'
-      });
+      if (!session.awaitingName) {
+        await logEventEverywhere(normalizedSessionId, 'schedule_call_cta_shown', {
+          source: 'email_capture_flow'
+        });
+      } else {
+        await logEventEverywhere(normalizedSessionId, 'email_followup_cta_shown', {
+          source: 'name_capture_flow'
+        });
+      }
     } catch (error) {
       console.error('Failed to persist lead capture to Firestore:', error.message);
     }
@@ -760,7 +819,7 @@ router.post('/sprocket-chat', async (req, res) => {
     }
 
     if ((intent === 'hesitant_user' || intent === 'email_preference') && !session.emailCaptured && ctas.length > 0) {
-      reply = `${reply}\n\nIf you'd rather not book anything yet, I can have the team follow up by email. Drop your best address and, if you want, your role or dealership.`;
+      reply = `${reply}\n\nIf you'd rather not book anything yet, I can have the team follow up by email. Drop your name and best email, and if you want, your role or dealership.`;
     }
 
     if (!reply || reply.length < 5) {
