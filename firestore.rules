@@ -1,0 +1,60 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    /**
+     * Auth helpers
+     * Reuse your existing helpers if they already exist in your canonical rules file.
+     */
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    /**
+     * Placeholder admin helper:
+     * - Prefer custom claim: request.auth.token.admin == true
+     * - Replace with your existing staff-role helper if available.
+     */
+    function isAdmin() {
+      return isSignedIn() && request.auth.token.admin == true;
+    }
+
+    /**
+     * SPROCKET WEBSITE CHATBOT COLLECTIONS
+     *
+     * Security intent:
+     * - No public client writes (all writes must be server-side via Admin SDK).
+     * - No public/non-admin reads.
+     * - Admin users can read for internal review.
+     * - Client-side delete denied.
+     */
+    match /sprocket_sessions/{sessionId} {
+      allow read: if isAdmin();
+      allow create, update, delete: if false;
+
+      match /messages/{messageId} {
+        allow read: if isAdmin();
+        allow create, update, delete: if false;
+      }
+    }
+
+    match /sprocket_events/{eventId} {
+      allow read: if isAdmin();
+      allow create, update, delete: if false;
+    }
+
+    match /sprocket_leads/{leadId} {
+      allow read: if isAdmin();
+      // Optional admin client-side lead editing for internal dashboards.
+      allow update: if isAdmin();
+      allow create, delete: if false;
+    }
+
+    /**
+     * Keep or merge your existing non-Sprocket app rules above this fallback.
+     * This fallback is secure-by-default.
+     */
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

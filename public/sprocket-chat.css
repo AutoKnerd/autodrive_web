@@ -136,6 +136,13 @@
   max-width: 100%;
 }
 
+.sprocket-msg-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: calc(100% - 45px);
+}
+
 .sprocket-row.user {
   justify-content: flex-end;
 }
@@ -153,12 +160,52 @@
 }
 
 .sprocket-bubble {
-  max-width: calc(100% - 45px);
+  max-width: 100%;
   border-radius: 14px;
   padding: 9px 11px;
   font-size: 13px;
   line-height: 1.35;
   white-space: pre-line;
+}
+
+.sprocket-bubble a {
+  color: #93c5fd;
+}
+
+.sprocket-row.user .sprocket-bubble a {
+  color: #1d4ed8;
+}
+
+.sprocket-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.sprocket-cta {
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 12px;
+  line-height: 1.1;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+.sprocket-cta-schedule {
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+.sprocket-cta-trial {
+  background: #16a34a;
+  color: #f0fdf4;
+}
+
+.sprocket-cta-email {
+  background: #ffffff;
+  color: #0f172a;
+  border-color: #cbd5e1;
 }
 
 .sprocket-row.user .sprocket-bubble {
