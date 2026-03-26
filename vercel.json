@@ -1,0 +1,19 @@
+{
+  "redirects": [
+    {
+      "source": "/tools",
+      "destination": "https://app.autodrivecx.com/tools",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

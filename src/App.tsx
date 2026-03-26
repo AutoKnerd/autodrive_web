@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Home from './pages/Home';
 import Implementation from './pages/Implementation';
 import SampleRolloutPlan from './pages/SampleRolloutPlan';
+import IndividualTrial from './pages/IndividualTrial';
+import TrialSuccess from './pages/TrialSuccess';
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -24,6 +26,9 @@ const App: React.FC = () => {
           <Route path="/" element={<Home />} />
           <Route path="/implementation" element={<Implementation />} />
           <Route path="/sample-rollout-plan" element={<SampleRolloutPlan />} />
+          <Route path="/individual-trial" element={<IndividualTrial />} />
+          <Route path="/start-trial" element={<Navigate to="/individual-trial" replace />} />
+          <Route path="/trial-success" element={<TrialSuccess />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </div>

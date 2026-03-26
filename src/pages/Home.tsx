@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight, AlertTriangle } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -7,6 +7,35 @@ import Footer from '../components/Footer';
 
 const Home: React.FC = () => {
     const [activeDriftMode, setActiveDriftMode] = useState<'typical' | 'autodrive'>('typical');
+    const [showFloatingCta, setShowFloatingCta] = useState(false);
+    const [footerLift, setFooterLift] = useState(0);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const onScroll = () => {
+            const doc = document.documentElement;
+            const maxScrollable = doc.scrollHeight - window.innerHeight;
+            const progress = maxScrollable > 0 ? window.scrollY / maxScrollable : 0;
+            setShowFloatingCta(progress >= 0.3);
+
+            const pixelsFromBottom = doc.scrollHeight - (window.scrollY + window.innerHeight);
+            setFooterLift(Math.max(0, 140 - pixelsFromBottom));
+        };
+
+        const onResize = () => {
+            setIsMobile(window.innerWidth <= 768);
+            onScroll();
+        };
+
+        onResize();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onResize);
+
+        return () => {
+            window.removeEventListener('scroll', onScroll);
+            window.removeEventListener('resize', onResize);
+        };
+    }, []);
 
     const snapshotMetrics = activeDriftMode === 'typical'
         ? [
@@ -28,16 +57,14 @@ const Home: React.FC = () => {
 
             {/* Hero Section */}
             <section
-                className="dark-section"
+                className="dark-section home-hero"
                 style={{
                     minHeight: '100vh',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'center',
                     position: 'relative',
-                    overflow: 'hidden',
-                    paddingTop: 'clamp(110px, 12vw, 140px)',
-                    paddingBottom: 'clamp(60px, 8vw, 80px)'
+                    overflow: 'hidden'
                 }}
             >
                 {/* Hero Background Visual */}
@@ -72,14 +99,13 @@ const Home: React.FC = () => {
                                 DEALERSHIP CX OPERATING SYSTEM
                             </p>
                             <h1 style={{ fontSize: 'clamp(2.4rem, 7vw, 5.2rem)', lineHeight: 1.02, marginBottom: '1rem', fontWeight: 800, color: '#fff', letterSpacing: '-0.03em', maxWidth: '920px' }}>
-                                Protect CSI. Protect Gross. Stabilize Culture.
+                                Protect CSI. Protect Gross.
+                                <br />
+                                Stabilize Dealership Execution.
                             </h1>
                             <div style={{ marginTop: '1rem' }}>
                                 <span style={{ fontWeight: 500, opacity: 0.92, fontSize: 'clamp(1.02rem, 2vw, 1.35rem)', color: '#d7e2eb', maxWidth: '900px', display: 'block', marginBottom: '0.65rem' }}>
-                                    AutoDriveCX is the behavioral operating system for dealership execution.
-                                </span>
-                                <span style={{ fontWeight: 500, opacity: 0.95, fontSize: 'clamp(1.05rem, 2.1vw, 1.5rem)', color: '#d7e2eb', maxWidth: '900px', display: 'block' }}>
-                                    Managers use it to prevent execution drift when pressure hits.
+                                    AutoDriveCX is the operating system that keeps dealership execution from drifting when pressure hits.
                                 </span>
                                 <span style={{ fontWeight: 500, opacity: 0.7, fontSize: '0.95rem', color: '#c4ccd6', maxWidth: '900px', display: 'block', marginTop: '0.7rem' }}>
                                     Across sales, service, BDC, and support teams.
@@ -88,16 +114,16 @@ const Home: React.FC = () => {
                         </div>
 
                         <div style={{ display: 'flex', gap: 'clamp(1rem, 3vw, 2rem)', flexWrap: 'wrap', alignItems: 'center' }}>
-                            <a href="#beta" className="btn btn-primary" style={{ padding: 'clamp(1rem, 3vw, 1.4rem) clamp(2rem, 5vw, 2.8rem)', fontSize: 'clamp(0.8rem, 2vw, 1rem)' }}>Schedule Implementation Call</a>
-                            <Link to="/sample-rollout-plan" className="btn btn-ghost" style={{ padding: 'clamp(1rem, 3vw, 1.4rem) clamp(2rem, 5vw, 2.8rem)', textDecoration: 'none', fontSize: 'clamp(0.8rem, 2vw, 1rem)' }}>
-                                View Sample Rollout Plan
+                            <a href="https://calendar.app.google/2gZsELsJfGXFUYDq5" target="_blank" rel="noopener" className="btn btn-primary" style={{ padding: 'clamp(1rem, 3vw, 1.4rem) clamp(2rem, 5vw, 2.8rem)', fontSize: 'clamp(0.8rem, 2vw, 1rem)' }}>Schedule Dealership Implementation</a>
+                            <Link to="/individual-trial" className="btn btn-ghost" style={{ padding: 'clamp(1rem, 3vw, 1.4rem) clamp(2rem, 5vw, 2.8rem)', textDecoration: 'none', fontSize: 'clamp(0.8rem, 2vw, 1rem)' }}>
+                                Start Individual Trial
                             </Link>
                         </div>
                         <p style={{ marginTop: '1rem', marginBottom: '1rem', color: 'var(--text-secondary-dark)', fontSize: '0.95rem', fontWeight: 500, opacity: 0.72, maxWidth: '760px' }}>
                             Most dealers start with a short implementation conversation to see how the system would install inside their store.
                         </p>
 
-                        <div style={{ marginTop: '2.2rem', marginBottom: '2.2rem', borderTop: '1px solid rgba(255,255,255,0.12)', borderBottom: '1px solid rgba(255,255,255,0.12)', padding: '1.15rem 0', textAlign: 'center', maxWidth: '760px' }}>
+                        <div className="home-hero-platform" style={{ marginBottom: '2.2rem', borderTop: '1px solid rgba(255,255,255,0.12)', borderBottom: '1px solid rgba(255,255,255,0.12)', padding: '1.15rem 0', textAlign: 'center', maxWidth: '760px' }}>
                             <p style={{ fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.16em', fontWeight: 800, color: 'rgba(255,255,255,0.62)', marginBottom: '0.45rem' }}>
                                 AUTODRIVECX PLATFORM
                             </p>
@@ -329,9 +355,9 @@ const Home: React.FC = () => {
                         <p style={{ fontSize: '1.08rem', color: '#111827', lineHeight: 1.65, marginBottom: '1.25rem' }}>
                             Want to see how these operational signals would look inside your dealership?
                         </p>
-                        <Link to="/implementation" className="btn btn-primary" style={{ textDecoration: 'none' }}>
+                        <a href="https://calendar.app.google/2gZsELsJfGXFUYDq5" target="_blank" rel="noopener" className="btn btn-primary" style={{ textDecoration: 'none' }}>
                             Schedule Implementation Call
-                        </Link>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -424,6 +450,9 @@ const Home: React.FC = () => {
                                     </p>
                                     <p style={{ fontSize: 'clamp(0.45rem, 1.1vw, 0.5rem)', fontWeight: 400, color: 'rgba(255,255,255,0.2)', textTransform: 'uppercase', letterSpacing: '0.15em' }}>
                                         Reinforcement Loop — Behavioral Control Framework
+                                    </p>
+                                    <p style={{ marginTop: '0.55rem', fontSize: 'clamp(0.5rem, 1.15vw, 0.56rem)', fontWeight: 400, color: 'rgba(255,255,255,0.45)', lineHeight: 1.45, letterSpacing: '0.02em', maxWidth: '95%' }}>
+                                        Operational reinforcement system governing daily execution, behavioral drift detection, and manager intervention loops.
                                     </p>
                                 </div>
                                 <img
@@ -623,9 +652,9 @@ const Home: React.FC = () => {
                         <p style={{ fontSize: '1.02rem', color: '#4b5563', lineHeight: 1.65, marginBottom: '1.25rem', maxWidth: '760px', marginLeft: 'auto', marginRight: 'auto' }}>
                             Most dealerships start with a short implementation conversation to pressure-test how the system would install inside their environment.
                         </p>
-                        <Link to="/implementation" className="btn btn-primary" style={{ textDecoration: 'none' }}>
+                        <a href="https://calendar.app.google/2gZsELsJfGXFUYDq5" target="_blank" rel="noopener" className="btn btn-primary" style={{ textDecoration: 'none' }}>
                             Schedule Implementation Call
-                        </Link>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -651,9 +680,9 @@ const Home: React.FC = () => {
                         ))}
                     </div>
                     <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginTop: '2rem' }}>
-                        <Link to="/implementation" className="btn btn-primary" style={{ textDecoration: 'none' }}>
+                        <a href="https://calendar.app.google/2gZsELsJfGXFUYDq5" target="_blank" rel="noopener" className="btn btn-primary" style={{ textDecoration: 'none' }}>
                             Schedule Implementation Call
-                        </Link>
+                        </a>
                         <Link to="/sample-rollout-plan" className="btn btn-ghost-dark" style={{ textDecoration: 'none' }}>
                             View Sample Rollout Plan
                         </Link>
@@ -679,11 +708,40 @@ const Home: React.FC = () => {
                         Protected at the executive level.
                     </p>
                     <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                        <a href="#beta" className="btn btn-primary">Join Private Beta</a>
+                        <a href="https://calendar.app.google/2gZsELsJfGXFUYDq5" target="_blank" rel="noopener" className="btn btn-primary">Schedule Implementation Call</a>
                         <Link to="/sample-rollout-plan" className="btn btn-ghost" style={{ textDecoration: 'none' }}>View Sample Rollout Plan</Link>
                     </div>
                 </div>
             </section>
+
+            <a
+                href="https://calendar.app.google/2gZsELsJfGXFUYDq5"
+                target="_blank"
+                rel="noopener"
+                aria-label="Schedule Implementation Call"
+                style={{
+                    position: 'fixed',
+                    right: isMobile ? '18px' : '24px',
+                    bottom: `${(isMobile ? 18 : 24) + footerLift}px`,
+                    padding: isMobile ? '12px 16px' : '14px 18px',
+                    borderRadius: '8px',
+                    background: 'var(--logo-green)',
+                    color: '#fff',
+                    zIndex: 1000,
+                    boxShadow: '0 10px 24px rgba(0, 0, 0, 0.22)',
+                    textDecoration: 'none',
+                    fontWeight: 700,
+                    fontSize: '0.86rem',
+                    letterSpacing: '0.04em',
+                    textTransform: 'uppercase',
+                    opacity: showFloatingCta ? 1 : 0,
+                    transform: showFloatingCta ? 'translateY(0)' : 'translateY(10px)',
+                    pointerEvents: showFloatingCta ? 'auto' : 'none',
+                    transition: 'opacity 220ms ease, transform 220ms ease, bottom 220ms ease'
+                }}
+            >
+                Schedule Implementation Call
+            </a>
 
             <Footer />
         </div>
